@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>jvm虚拟机</title>
+    <link href="/2022/05/31/java%20jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <url>/2022/05/31/java%20jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    
+    <content type="html"><![CDATA[<h2 id="jvm虚拟机"><a href="#jvm虚拟机" class="headerlink" title="jvm虚拟机"></a>jvm虚拟机</h2><p>Java 虚拟机屏蔽了与具体操作系统平台相关的信息,使得 Java 语言编译程序只需生成在 Java 虚拟机上运行的目标代码(字节码),就可以在多种平台上不加修改地运行。Java 虚拟机在执行字节码时,实际上最终还是把字节码解释成具体平台上的机器指令执行。</p><h2 id="Java-的优点"><a href="#Java-的优点" class="headerlink" title="Java 的优点"></a>Java 的优点</h2><ul><li>是一门结构严谨、面向对象的编程语言。</li><li>摆脱了硬件平台的束缚，实现了“一次编写，到处运行”的理想。</li><li>提供了一种相对安全的内存管理和访问机制，避免了绝大部分的内存泄漏和指针越界问题。</li><li>实现了热点代码检测和运行时编译及优化，使得 Java 应用能随着运行时间的增加而获得更高的性能。</li><li>有一套完善的应用程序接口和无数的来自商业机构和开源社区的第三方类库来帮助实现各种各样的功能。</li></ul><h2 id="Java-平台的逻辑结构"><a href="#Java-平台的逻辑结构" class="headerlink" title="Java 平台的逻辑结构"></a>Java 平台的逻辑结构</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo 搭建个人博客</title>
     <link href="/2022/05/31/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2022/05/31/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
@@ -45,7 +70,7 @@
     
     <tags>
       
-      <tag>搭建个人博客</tag>
+      <tag>个人博客</tag>
       
     </tags>
     
