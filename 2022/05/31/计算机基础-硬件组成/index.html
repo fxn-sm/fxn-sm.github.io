@@ -18,22 +18,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[TOC] 序列化定义将一个类对象转换成可存储、可传输状态的过程。序列化有两个过程： 1、序列化：将对象编码成字节流（serializing） 2、反序列化：从字节流编码中重新构建对象（deserializing)。对象序列化后，可以在进程内&#x2F;进程间、网络间进行传输，也可以做本地持久化存储。 为什么要序列化系统底层并不认识对象，数据传输是以字节序列形式传递，以进程间通信为例，需要将对象转">
+    <meta name="description" content="计算机硬件系统五大组成1、控制器：​		计算机的指挥系统。控制器通过地址访问存储器，从存储器中取出指令，经译码器分析后，根据指令分析结果产生相应的操作控制信号作用于其他部件，使得各部件在控制器控制下有条不紊地协调工作。 2、运算器：​		实现算术运算和逻辑运算的部件。 3、存储器：​		是计算机用来存放所有数据和程序的记忆部件。它的基本功能是按指定的地址存（写）入或者取（读）出信息。 计算机中的存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="序列化">
-<meta property="og:url" content="http://example.com/2022/05/31/java%20%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
+<meta property="og:title" content="计算机硬件组成">
+<meta property="og:url" content="http://example.com/2022/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80-%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[TOC] 序列化定义将一个类对象转换成可存储、可传输状态的过程。序列化有两个过程： 1、序列化：将对象编码成字节流（serializing） 2、反序列化：从字节流编码中重新构建对象（deserializing)。对象序列化后，可以在进程内&#x2F;进程间、网络间进行传输，也可以做本地持久化存储。 为什么要序列化系统底层并不认识对象，数据传输是以字节序列形式传递，以进程间通信为例，需要将对象转">
+<meta property="og:description" content="计算机硬件系统五大组成1、控制器：​		计算机的指挥系统。控制器通过地址访问存储器，从存储器中取出指令，经译码器分析后，根据指令分析结果产生相应的操作控制信号作用于其他部件，使得各部件在控制器控制下有条不紊地协调工作。 2、运算器：​		实现算术运算和逻辑运算的部件。 3、存储器：​		是计算机用来存放所有数据和程序的记忆部件。它的基本功能是按指定的地址存（写）入或者取（读）出信息。 计算机中的存">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/jgsfwq2.jpg">
+<meta property="og:image" content="http://example.com/images/jgsfwq3.jpg">
+<meta property="og:image" content="http://example.com/images/jgsfwq4.webp">
 <meta property="article:published_time" content="2022-05-31T09:50:00.000Z">
-<meta property="article:modified_time" content="2022-06-07T09:03:12.531Z">
+<meta property="article:modified_time" content="2022-06-07T09:35:59.986Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/jgsfwq2.jpg">
   
   
   
-  <title>序列化 - Hexo</title>
+  <title>计算机硬件组成 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="序列化"></span>
+            <span id="subtitle" data-typed-text="计算机硬件组成"></span>
           
         </div>
 
@@ -219,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          779 字
+          2.2k 字
         
       </span>
     
@@ -230,7 +234,7 @@
         
         
         
-          7 分钟
+          19 分钟
         
       </span>
     
@@ -268,25 +272,39 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">序列化</h1>
+            <h1 style="display: none">计算机硬件组成</h1>
             
             <div class="markdown-body">
               
-              <p>[TOC]</p>
-<h2 id="序列化定义"><a href="#序列化定义" class="headerlink" title="序列化定义"></a>序列化定义</h2><p>将一个类对象转换成可存储、可传输状态的过程。序列化有两个过程：</p>
-<p>1、序列化：将对象编码成字节流（serializing）</p>
-<p>2、反序列化：从字节流编码中重新构建对象（deserializing)。对象序列化后，可以在进程内&#x2F;进程间、网络间进行传输，也可以做本地持久化存储。</p>
-<h2 id="为什么要序列化"><a href="#为什么要序列化" class="headerlink" title="为什么要序列化"></a>为什么要序列化</h2><p>系统底层并不认识对象，数据传输是以字节序列形式传递，以进程间通信为例，需要将对象转化为字节序列(字节序列中包括该对象的类型，成员信息等)，然后在目标进程里通过反序列化字节序列，将字节序列转换成对象。</p>
-<h3 id="Serializable（Java自带）"><a href="#Serializable（Java自带）" class="headerlink" title="Serializable（Java自带）"></a>Serializable（Java自带）</h3><p>Serializable是序列化的意思，表示将一个对象转换成可存储或可传输的状态。序列化后的对象可以在网络上进行传输，也可以存储到本地。</p>
-<h3 id="Parcelable（android-专用）"><a href="#Parcelable（android-专用）" class="headerlink" title="Parcelable（android 专用）"></a>Parcelable（android 专用）</h3><p>除了Serializable之外，使用Parcelable也可以实现相同的效果，</p>
-<p>不过不同于将对象进行序列化，Parcelable方式的实现原理是将一个完整的对象进行分解，</p>
-<p>而分解后的每一部分都是Intent所支持的数据类型，这样也就实现传递对象的功能了。</p>
-<h3 id="实现Parcelable的作用"><a href="#实现Parcelable的作用" class="headerlink" title="实现Parcelable的作用"></a>实现Parcelable的作用</h3><p>1）永久性保存对象，保存对象的字节序列到本地文件中；</p>
-<p>2）通过序列化对象在网络中传递对象；</p>
-<p>3）通过序列化在进程间传递对象。</p>
-<h3 id="选择序列化方法的原则"><a href="#选择序列化方法的原则" class="headerlink" title="选择序列化方法的原则"></a>选择序列化方法的原则</h3><p>1）在使用内存的时候，Parcelable比Serializable性能高，所以推荐使用Parcelable。</p>
-<p>2）Serializable在序列化的时候会产生大量的临时变量，从而引起频繁的GC。</p>
-<p>3）Parcelable不能使用在要将数据存储在磁盘上的情况，因为Parcelable不能很好的保证数据的持续性在外界有变化的情况下。尽管Serializable效率低点，但此时还是建议使用Serializable 。</p>
+              <h2 id="计算机硬件系统五大组成"><a href="#计算机硬件系统五大组成" class="headerlink" title="计算机硬件系统五大组成"></a>计算机硬件系统五大组成</h2><h3 id="1、控制器："><a href="#1、控制器：" class="headerlink" title="1、控制器："></a>1、控制器：</h3><p>​		计算机的指挥系统。控制器通过地址访问存储器，从存储器中取出指令，经译码器分析后，根据指令分析结果产生相应的操作控制信号作用于其他部件，使得各部件在控制器控制下有条不紊地协调工作。</p>
+<h3 id="2、运算器："><a href="#2、运算器：" class="headerlink" title="2、运算器："></a>2、运算器：</h3><p>​		实现算术运算和逻辑运算的部件。</p>
+<h3 id="3、存储器："><a href="#3、存储器：" class="headerlink" title="3、存储器："></a>3、存储器：</h3><p>​		是计算机用来存放所有数据和程序的记忆部件。它的基本功能是按指定的地址存（写）入或者取（读）出信息。 计算机中的存储器可分成两大类：一类是内存储器，简称内存或主存；另一类是外存储器（辅助存储器），简称外存或辅存。 存储器由若干个存储单元组成，每个存储单元都有一个地址，计算机通过地址对存储单元进行读写。一个存储器所包含的字节数称为存储容量，单位有B、KB、MB、GB、TB等。</p>
+<h3 id="4、输入设备："><a href="#4、输入设备：" class="headerlink" title="4、输入设备："></a>4、输入设备：</h3><p>​		是向计算机中输入信息（程序、数据、声音、文字、图形、图像等）的设备。常见的输入设备有：键盘、鼠标、图形扫描仪、触摸屏、条形码输入器、光笔等。 外存储器也是一种输入设备。 </p>
+<h3 id="5、输出设备："><a href="#5、输出设备：" class="headerlink" title="5、输出设备："></a>5、输出设备：</h3><p>​		主要有显示器、打印机和绘图仪等。外存储器也当作一种输出设备。</p>
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p>​		我们知道其实计算机是由五大单元：CPU（控制单元、算术逻辑单元）、主存储器、输入单元、输出单元构成的。也可以说CPU+主存储器+输入输出构成了电子计算机的三大核心组件</p>
+<p>1、控制单元+算数逻辑单元&#x3D;&gt;CPU </p>
+<p>2、主存储器，即内存</p>
+<p>3、输入单元Input+输出单元Outpu&#x3D;&gt;IO设备</p>
+<h3 id="处理器（CPU概念）"><a href="#处理器（CPU概念）" class="headerlink" title="处理器（CPU概念）"></a>处理器（CPU概念）</h3><p>​    	通常将运算器和控制器合称为中央处理器(Central Processing Unit，CPU)。其中运算器用来主要负责程序运算与逻辑判断，控制器则主要协调各组件和各单元的工作，所以CPU的工作主要在于管理和运算。可以说计算机的大脑就是CPU，它从内存中<strong>取指令-&gt;解码-&gt;执行，</strong>然后再取指-&gt;解码-&gt;执行下一条指令，周而复始，直至整个程序被执行完成。  </p>
+<pre><code class="hljs">     既然CPU的重点在于进行运算和判断，那么要被运算与判断的数据是从哪里来的？CPU读取的数据都是从主存储器（内存）来的！主存储器内的数据则是从输入单元所传输进来！而CPU处理完毕的数据也必须先写回主存储器中，最后数据才从主存储器传输到输出单元。
+</code></pre>
+<p><img src="/images/jgsfwq2.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="1、寄存器"><a href="#1、寄存器" class="headerlink" title="1、寄存器"></a>1、寄存器</h3><p>cpu中也会有存储功能，这就是寄存器。因访问内存以得到指令或数据的时间比cpu执行指令花费的时间要长得多，所以，所有CPU内部都有一些用来保存关键变量和临时数据的寄存器，这样通常在cpu的指令集中专门提供一些指令，用来将一个字（可以理解为数据）从内存调入寄存器，以及将一个字从寄存器存入内存。cpu其他的指令集可以把来自寄存器、内存的操作数据组合，或者用两者产生一个结果，比如将两个字相加并把结果存在寄存器或内存中。</p>
+<h3 id="2、64位"><a href="#2、64位" class="headerlink" title="2、64位"></a>2、64位</h3><p>cpu的位数指的是cpu一次性能从内存中取出多少位二进制指令，64bit指的是一次性能从内存中取出64位二进制指令。<br>    在2003年以前由Intel所开发的x86架构CPU由8位升级到16、32位，后来AMD依此架构修改新一代的CPU为64位，到现在，个人计算机CPU通常都是x86_64的架构。</p>
+<p>cpu具有向下兼容性</p>
+<h3 id="3、4核8线程"><a href="#3、4核8线程" class="headerlink" title="3、4核8线程"></a>3、4核8线程</h3><p>​		它由 Intel 研发，是把处理器内部的一个物理CPU模拟成两个逻辑CPU（以后也许有多个），让单个处理器就能使用线程级的并行计算，进而兼容多线程操作系统和软件。超线程技术充分利用空闲CPU资源，在相同时间内完成更多工作，在一定程度上提高了运行效率和性能。<br>  所以才会出现了我们提到的四核八线程，也就是将四个物理核心模拟成八个逻辑核心，同时会有四核支持八线程的操作。<br>  但是呢，四核八线程虽然模拟出来的是八核，其实和真实八核区别很大，虽然采用超线程技术能同时执行两个线程，但它并不能像两个真实CPU那样，每个CPU都具有独立的资源。单一资源同时只能支持一个CPU占用，因此当这些资源闲置后另一个CPU才能继续占用。并且，单一核心模拟出的两个逻辑核心的单个性能会有所下降。</p>
+<h3 id="储存器"><a href="#储存器" class="headerlink" title="储存器"></a>储存器</h3><p>​		 计算机中第二重要的就是存储了，所有人都意淫着存储：速度快（这样cpu的等待存储器的延迟就降低了）+容量大+价钱便宜。然后同时兼备三者是不可能的，所以有了如下的不同的处理方式 </p>
+<p><img src="/images/jgsfwq3.jpg" srcset="/img/loading.gif" lazyload></p>
+<p> 存储器系统采用如上图的分层结构，顶层的存储器速度较高，容量较小，与底层的存储器相比每位的成本较高，其差别往往是十亿数量级的 </p>
+<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>RAM:我们安装的qq、微信、爱奇艺都是运行的RAM内存</p>
+<p>ROM: BIOS(Basic Input Output System基本的输入输出操作系统)  电脑自带基本的控制硬件系统（如图）</p>
+<p><img src="/images/jgsfwq4.webp" srcset="/img/loading.gif" lazyload></p>
+<p>CMOS: 许多计算机利用CMOS存储器来<strong>保持当前时间和日期</strong>。CMOS存储器和递增时间的电路由一小块<strong>电池驱动</strong>，所以，即使计算机没有加电，时间也仍然可以正确地更新，除此之外<strong>CMOS还可以保存配置的参数，比如，哪一个是启动磁盘等</strong>，之所以采用CMOS是因为它耗电非常少，一块工厂原装电池往往能使用若干年，但是当电池失效时，相关的配置和时间等都将丢失 </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>程序的运行与计算机三大核心硬件cpu、内容、硬件的关系</p>
+<p>1、程序最先是存放在硬盘中的</p>
+<p>2、程序的运行需要先经历加载的过程：程序的代码&#x2F;数据从硬盘读入内存</p>
+<p>3、然后cpu从内存中读取指令来运行</p>
+<p>安装软件都是先装到硬盘中，软件的运行都要把数据加载到内存中。所以说计算机硬盘的大小决定了能够安装的软件数目，而计算机内容的大小决定了计算机能够同时运行的软件数目</p>
 
               
             </div>
@@ -304,7 +322,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/java/" class="category-chain-item">java</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
   
   
 
@@ -319,7 +337,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/java/">#java</a>
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">#计算机基础</a>
       
     </div>
   
@@ -331,8 +349,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>序列化</div>
-      <div>http://example.com/2022/05/31/java 序列化/</div>
+      <div>计算机硬件组成</div>
+      <div>http://example.com/2022/05/31/计算机基础-硬件组成/</div>
     </div>
     <div class="license-meta">
       
@@ -374,12 +392,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%8D%E7%B1%BB/" title="服务器种类">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">服务器种类</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80-%E8%BD%AF%E4%BB%B6%E7%A0%94%E5%8F%91%E6%B5%81%E7%A8%8B/" title="软件研发流程">
-                        <span class="hidden-mobile">软件研发流程</span>
+                      <a href="/2022/05/31/java%20jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="jvm虚拟机">
+                        <span class="hidden-mobile">jvm虚拟机</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
