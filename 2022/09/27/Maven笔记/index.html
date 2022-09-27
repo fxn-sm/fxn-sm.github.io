@@ -1,0 +1,1385 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Maven学习笔记1  Maven简介1.1 传统项目管理状态分析jar包不统一，不兼容工程升级维护过程操作繁琐…  1.2 Maven是什么maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型（POM）POM（Project Object Model）：项目对象模型  1.3 Maven的作用项目构建：提供标准的、跨平台的自动化项目构建方式依赖管理：方便快捷的管理项目依">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="http://example.com/2022/09/27/Maven%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Maven学习笔记1  Maven简介1.1 传统项目管理状态分析jar包不统一，不兼容工程升级维护过程操作繁琐…  1.2 Maven是什么maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型（POM）POM（Project Object Model）：项目对象模型  1.3 Maven的作用项目构建：提供标准的、跨平台的自动化项目构建方式依赖管理：方便快捷的管理项目依">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/image-20220121135112719.png">
+<meta property="og:image" content="http://example.com/images/image-20220121135910882.png">
+<meta property="og:image" content="http://example.com/images/image-20220121141059406.png">
+<meta property="og:image" content="http://example.com/images/image-20220121141123867.png">
+<meta property="og:image" content="http://example.com/images/image-20220121141235976.png">
+<meta property="og:image" content="http://example.com/images/image-20220121141338312.png">
+<meta property="og:image" content="http://example.com/images/image-20220121141827509.png">
+<meta property="og:image" content="http://example.com/images/image-20220121150420130.png">
+<meta property="og:image" content="http://example.com/images/image-20220121152837716.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154226132.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154303341.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154416911.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154511409.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154719117.png">
+<meta property="og:image" content="http://example.com/images/image-20220121154837733.png">
+<meta property="og:image" content="http://example.com/images/image-20220121155025903.png">
+<meta property="og:image" content="http://example.com/images/image-20220121155420854.png">
+<meta property="og:image" content="http://example.com/images/image-20220121155551150.png">
+<meta property="og:image" content="http://example.com/images/image-20220121155645856.png">
+<meta property="og:image" content="http://example.com/images/image-20220121155718843.png">
+<meta property="og:image" content="http://example.com/images/image-20220121160753851.png">
+<meta property="og:image" content="http://example.com/images/image-20220121160928095.png">
+<meta property="og:image" content="http://example.com/images/image-20220121161144859.png">
+<meta property="og:image" content="http://example.com/images/image-20220121161727541.png">
+<meta property="og:image" content="http://example.com/images/image-20220121161833106.png">
+<meta property="og:image" content="http://example.com/images/image-20220121164039937.png">
+<meta property="og:image" content="http://example.com/images/image-20220121164402283.png">
+<meta property="og:image" content="http://example.com/images/image-20220121164437724.png">
+<meta property="og:image" content="http://example.com/images/image-20220121170201713.png">
+<meta property="og:image" content="http://example.com/images/image-20220121170234318.png">
+<meta property="og:image" content="http://example.com/images/image-20220121170443225.png">
+<meta property="og:image" content="http://example.com/images/image-20220121171540596.png">
+<meta property="og:image" content="http://example.com/images/image-20220121171129186.png">
+<meta property="og:image" content="http://example.com/images/image-20220121172029873.png">
+<meta property="og:image" content="http://example.com/images/image-20220121180142958.png">
+<meta property="og:image" content="http://example.com/images/image-20220121181457657.png">
+<meta property="og:image" content="http://example.com/images/image-20220121181641821.png">
+<meta property="og:image" content="http://example.com/images/image-20220122132925074.png">
+<meta property="og:image" content="http://example.com/images/image-20220122133255620.png">
+<meta property="og:image" content="http://example.com/images/image-20220122133316989.png">
+<meta property="og:image" content="http://example.com/images/image-20220122135358105.png">
+<meta property="og:image" content="http://example.com/images/image-20220122133736137.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140049804.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140449012.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140607193.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140707370.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140806790.png">
+<meta property="og:image" content="http://example.com/images/image-20220122140944862.png">
+<meta property="og:image" content="http://example.com/images/image-20220122141025450.png">
+<meta property="og:image" content="http://example.com/images/image-20220122151324949.png">
+<meta property="og:image" content="http://example.com/images/image-20220122151519992.png">
+<meta property="og:image" content="http://example.com/images/image-20220122151754885.png">
+<meta property="og:image" content="http://example.com/images/image-20220122153355243.png">
+<meta property="og:image" content="http://example.com/images/image-20220122153626040.png">
+<meta property="og:image" content="http://example.com/images/image-20220122153759349.png">
+<meta property="og:image" content="http://example.com/images/image-20220122153839665.png">
+<meta property="og:image" content="http://example.com/images/image-20220122160937202.png">
+<meta property="og:image" content="http://example.com/images/image-20220122164503334.png">
+<meta property="og:image" content="http://example.com/images/image-20220122164047807.png">
+<meta property="og:image" content="http://example.com/images/image-20220122164336440.png">
+<meta property="og:image" content="http://example.com/images/image-20220122164352087.png">
+<meta property="og:image" content="http://example.com/images/image-20220122165852909.png">
+<meta property="og:image" content="http://example.com/images/image-20220122170016494.png">
+<meta property="og:image" content="http://example.com/images/image-20220122170202646.png">
+<meta property="og:image" content="http://example.com/images/image-20220122170222472.png">
+<meta property="og:image" content="http://example.com/images/image-20220122170257939.png">
+<meta property="og:image" content="http://example.com/images/image-20220122180752810.png">
+<meta property="og:image" content="http://example.com/images/image-20220122181446745.png">
+<meta property="og:image" content="http://example.com/images/image-20220122183813865.png">
+<meta property="og:image" content="http://example.com/images/image-20220122184324524.png">
+<meta property="og:image" content="http://example.com/images/image-20220122185714834.png">
+<meta property="og:image" content="http://example.com/images/image-20220122202158001.png">
+<meta property="og:image" content="http://example.com/images/image-20220122202241524.png">
+<meta property="og:image" content="http://example.com/images/image-20220122202910416.png">
+<meta property="og:image" content="http://example.com/images/image-20220122210750754.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211139805.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211252958.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211328647.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211436743.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211501420.png">
+<meta property="og:image" content="http://example.com/images/image-20220122211748769.png">
+<meta property="og:image" content="http://example.com/images/image-20220122212618331.png">
+<meta property="og:image" content="http://example.com/images/image-20220122213102173.png">
+<meta property="og:image" content="http://example.com/images/image-20220122213829189.png">
+<meta property="og:image" content="http://example.com/images/image-20220122213921292.png">
+<meta property="og:image" content="http://example.com/images/image-20220122214048929.png">
+<meta property="og:image" content="http://example.com/images/image-20220122213802054.png">
+<meta property="og:image" content="http://example.com/images/image-20220122214226492.png">
+<meta property="og:image" content="http://example.com/images/image-20220123211946393.png">
+<meta property="og:image" content="http://example.com/images/image-20220123214655864.png">
+<meta property="og:image" content="http://example.com/images/image-20220123214721101.png">
+<meta property="article:published_time" content="2022-09-27T05:15:49.000Z">
+<meta property="article:modified_time" content="2022-09-27T03:09:57.650Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Maven">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/image-20220121135112719.png">
+  
+  
+  
+  <title>Maven - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>罗罗诺亚·索隆</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Maven"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-27 13:15" pubdate>
+          2022年9月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          29k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          241 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Maven</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="Maven学习笔记"><a href="#Maven学习笔记" class="headerlink" title="Maven学习笔记"></a>Maven学习笔记</h1><h2 id="1-Maven简介"><a href="#1-Maven简介" class="headerlink" title="1  Maven简介"></a>1  Maven简介</h2><h3 id="1-1-传统项目管理状态分析"><a href="#1-1-传统项目管理状态分析" class="headerlink" title="1.1 传统项目管理状态分析"></a>1.1 传统项目管理状态分析</h3><p>jar包不统一，不兼容<br>工程升级维护过程操作繁琐<br>…</p>
+<p><img src="/images/image-20220121135112719.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="1-2-Maven是什么"><a href="#1-2-Maven是什么" class="headerlink" title="1.2 Maven是什么"></a>1.2 Maven是什么</h3><p>maven的本质是一个<strong>项目管理工具</strong>，将项目开发和管理过程抽象成一个<strong>项目对象模型</strong>（POM）<br>POM（Project Object Model）：项目对象模型</p>
+<p><img src="/images/image-20220121135910882.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="1-3-Maven的作用"><a href="#1-3-Maven的作用" class="headerlink" title="1.3 Maven的作用"></a>1.3 Maven的作用</h3><p><strong>项目构建</strong>：提供标准的、跨平台的自动化项目构建方式<br><strong>依赖管理</strong>：方便快捷的管理项目依赖的资源（jar包），避免资源间的版本冲突问题<br><strong>统一的开发结构</strong>：提供标准的、统一的项目结构</p>
+<h2 id="2-下载与安装"><a href="#2-下载与安装" class="headerlink" title="2 下载与安装"></a>2 下载与安装</h2><p>官网：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a></p>
+<p>1、将下载好的文件解压缩，我的是放在C:\Program Files\apache-maven-3.6.3下</p>
+<p><img src="/images/image-20220121141059406.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置环境变量：</p>
+<p><img src="/images/image-20220121141123867.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/image-20220121141235976.png" srcset="/img/loading.gif" lazyload></p>
+<p>在cmd查看是否配置成功：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> -v<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121141338312.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-Maven基础概念"><a href="#3-Maven基础概念" class="headerlink" title="3 Maven基础概念"></a>3 Maven基础概念</h2><h3 id="3-1-仓库"><a href="#3-1-仓库" class="headerlink" title="3.1 仓库"></a>3.1 仓库</h3><p>仓库：用于存储资源，包含各种jar包</p>
+<p><img src="/images/image-20220121141827509.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>仓库分类</p>
+</blockquote>
+<ul>
+<li>本地仓库：自己电脑上存储资源的仓库，连接远程仓库获取资源</li>
+<li>远程仓库：包括私服和中央仓库，即非本机电脑上的仓库，为本地仓库提供资源</li>
+<li>中央仓库：Maven团队维护，存储所有资源的仓库</li>
+<li>私服：部门或公司范围内存储资源的仓库，它从中央仓库来获取资源</li>
+</ul>
+<blockquote>
+<p>私服的作用</p>
+</blockquote>
+<ul>
+<li>保存具有版本的资源，包含购买或自主研发的jar</li>
+<li>中央仓库的jar都是开源的，不能存储具有版权的资源</li>
+<li>一定范围内共享资源，仅对内部开放，不对外共享</li>
+</ul>
+<h3 id="3-2-坐标"><a href="#3-2-坐标" class="headerlink" title="3.2 坐标"></a>3.2 坐标</h3><p>坐标：Maven中的坐标用于描述仓库中资源的位置</p>
+<blockquote>
+<p>主要组成：</p>
+</blockquote>
+<ul>
+<li>groupId：定义当前Maven项目隶属组织名称（通常是域名反写，例如org.mybatis）</li>
+<li>artifactId：定义当前Maven项目名称（通常是模块名称，例如CRM，SMS）</li>
+<li>version：定义当前项目版本号</li>
+<li>packaging：定义该项目的打包方式</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.elasticsearch.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>elasticsearch-rest-high-level-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>7.12.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<p>作用：使用唯一标识，唯一性地定位资源位置，通过该标识可以将资源的识别与下载工作交由机器完成</p>
+<h3 id="3-3-仓库配置"><a href="#3-3-仓库配置" class="headerlink" title="3.3 仓库配置"></a>3.3 仓库配置</h3><h4 id="3-3-1-本地仓库配置"><a href="#3-3-1-本地仓库配置" class="headerlink" title="3.3.1 本地仓库配置"></a>3.3.1 本地仓库配置</h4><p>Maven启动后，会自动保存下载的资源到本地仓库，仓库位置可在conf&#x2F;settings.xml下查看</p>
+<p>默认位置：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!-- localRepository</span></span><br><span class="hljs-comment"><span class="language-xml">   | The path to the local repository maven will use to store artifacts.</span></span><br><span class="hljs-comment"><span class="language-xml">   |</span></span><br><span class="hljs-comment"><span class="language-xml">   | Default: $</span></span><span class="hljs-template-variable">&#123;user.home&#125;</span><span class="language-xml"><span class="hljs-comment">/.m2/repository</span></span><br><span class="hljs-comment"><span class="language-xml">  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span></span><br><span class="hljs-comment"><span class="language-xml">--&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>其中的默认位置就是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;localRepository&gt;<span class="hljs-variable">$&#123;user.home&#125;</span>/.m2/repository&lt;/localRepository&gt;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121150420130.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以自定义本地仓库的位置，将上述代码修改为：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">&lt;localRepository&gt;D:<span class="hljs-regexp">/DevEnvironment/</span>localRepository&lt;/localRepository&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-远程仓库配置"><a href="#3-3-2-远程仓库配置" class="headerlink" title="3.3.2 远程仓库配置"></a>3.3.2 远程仓库配置</h4><p>Maven默认连接的远程仓库的位置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">repositories</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Central Repository<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://repo.maven.apache.org/maven2<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">layout</span>&gt;</span>default<span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">snapshots</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">enabled</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">enabled</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">snapshots</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">repositories</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>可以将其替换为镜像仓库，修改<strong>conf&#x2F;settings.xml</strong>，配置为阿里云的镜像仓库</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirrors</span>&gt;</span> <br>    <span class="hljs-comment">&lt;!-- 配置具体的仓库的下载镜像 --&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span> <br>        <span class="hljs-comment">&lt;!-- 此镜像的唯一标识符，用来区分不同的镜像 --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>nexus-aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span> <br>        <span class="hljs-comment">&lt;!-- 对哪种仓库进行镜像，即对哪个远程仓库进行替换，此处为中央仓库 --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 镜像名称 --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Nexus aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 镜像的URL --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirrors</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="4-手工制作Maven项目"><a href="#4-手工制作Maven项目" class="headerlink" title="4 手工制作Maven项目"></a>4 手工制作Maven项目</h2><h3 id="4-1-项目结构搭建"><a href="#4-1-项目结构搭建" class="headerlink" title="4.1 项目结构搭建"></a>4.1 项目结构搭建</h3><p>Maven工程目录结构</p>
+<p><img src="/images/image-20220121152837716.png" srcset="/img/loading.gif" lazyload></p>
+<p>代码</p>
+<p>在<strong>src&#x2F;main&#x2F;java&#x2F;com&#x2F;hongyi&#x2F;<strong>下新建</strong>Demo.java</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.hongyi;<br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Demo&#123;<br>    <span class="hljs-built_in">public</span> String say(String <span class="hljs-type">name</span>) &#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;Hello, &quot; + <span class="hljs-type">name</span>);<br>        <span class="hljs-keyword">return</span> &quot;Hello, &quot; + <span class="hljs-type">name</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在<strong>src&#x2F;test&#x2F;java&#x2F;com&#x2F;hongyi&#x2F;<strong>下新建</strong>DemoTest.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.hongyi;<br><span class="hljs-keyword">import</span> org.junit.Test;<br><span class="hljs-keyword">import</span> org.junit.Assert;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DemoTest</span> &#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testSay</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">Demo</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Demo</span>();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">ret</span> <span class="hljs-operator">=</span> d.say(<span class="hljs-string">&quot;Maven&quot;</span>);<br>        Assert.assertEquals(<span class="hljs-string">&quot;Hello, Maven&quot;</span>, ret);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在项目根目录（和<strong>src</strong>同级）下新建一个<strong>pom.xml</strong>文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-comment">&lt;!-- pom文件所需的xml头，固定 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 组织名称（域名反写） --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.hongyi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 项目名称 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>project-maven<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>	<br>    <span class="hljs-comment">&lt;!-- 依赖的资源 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br>    <br>    <span class="hljs-comment">&lt;!-- 设定字符集和maven编译java程序时的jdk版本，这里是jdk11 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-项目构建"><a href="#4-2-项目构建" class="headerlink" title="4.2 项目构建"></a>4.2 项目构建</h3><p>Maven常用构建命令：使用mvn开头，后面添加功能参数，可以一次执行多个命令，使用空格分隔</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mvn compile</td>
+<td>编译</td>
+</tr>
+<tr>
+<td>mvn clean</td>
+<td>清理</td>
+</tr>
+<tr>
+<td>mvn test</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>mvn package</td>
+<td>打包，包含编译和测试</td>
+</tr>
+<tr>
+<td>mvn install</td>
+<td>安装到本地仓库</td>
+</tr>
+</tbody></table>
+<p>进入到项目根目录，运行编译命令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> compile<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121154226132.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果jdk版本指定过低，会报以下错误：</p>
+<p><img src="/images/image-20220121154303341.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时查看本地仓库，会有下载好的资源</p>
+<p><img src="/images/image-20220121154416911.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时，在项目根目录中也会有编译完成的项目target：</p>
+<p><img src="/images/image-20220121154511409.png" srcset="/img/loading.gif" lazyload></p>
+<p>执行clean命令，会清除target目录</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> clean<br></code></pre></td></tr></table></figure>
+
+<p>执行test命令，也会编译生成target，并且附带有测试结果文件</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> test<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121154719117.png" srcset="/img/loading.gif" lazyload></p>
+<p>测试报告：</p>
+<p><img src="/images/image-20220121154837733.png" srcset="/img/loading.gif" lazyload></p>
+<p>执行package命令，会将源程序编译并打包</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">mvn <span class="hljs-keyword">package</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121155025903.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意：打包命令包含了编译和测试两个命令。</p>
+<p>​	1.执行install命令，会将该项目安装到本地仓库</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> install<br></code></pre></td></tr></table></figure>
+
+<p>查看本地仓库，按照项目的groupId查找，例如com.hongyi：</p>
+<p><img src="/images/image-20220121155420854.png" srcset="/img/loading.gif" lazyload></p>
+<p>其中项目名称artifactId又决定了一层目录，这里为project-maven：</p>
+<p><img src="/images/image-20220121155551150.png" srcset="/img/loading.gif" lazyload></p>
+<p>版本号version又决定了一层目录：</p>
+<p><img src="/images/image-20220121155645856.png" srcset="/img/loading.gif" lazyload></p>
+<p>最后的文件内容，即为打好包的jar包和对应的pom文件：</p>
+<p><img src="/images/image-20220121155718843.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="5-IDEA生成Maven项目"><a href="#5-IDEA生成Maven项目" class="headerlink" title="5 IDEA生成Maven项目"></a>5 IDEA生成Maven项目</h2><h3 id="5-1-创建空Maven项目"><a href="#5-1-创建空Maven项目" class="headerlink" title="5.1 创建空Maven项目"></a>5.1 创建空Maven项目</h3><ol>
+<li>新建一个空的工程，然后选择jdk版本</li>
+<li>打开setting，搜索maven并进行相关配置：</li>
+</ol>
+<p><img src="/images/image-20220121160753851.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>新建模块module：</li>
+</ol>
+<p><img src="/images/image-20220121160928095.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后标记各个目录的功能：</p>
+<p><img src="/images/image-20220121161144859.png" srcset="/img/loading.gif" lazyload></p>
+<p>在idea右侧有maven相关的操作：</p>
+<p><img src="/images/image-20220121161727541.png" srcset="/img/loading.gif" lazyload></p>
+<p>与mvn的各种命令相同，不再赘述。</p>
+<ol>
+<li>按照上一节的操作，添加各个类，最后的项目结构如下：</li>
+</ol>
+<p><img src="/images/image-20220121161833106.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="5-2-使用骨架创建Maven项目"><a href="#5-2-使用骨架创建Maven项目" class="headerlink" title="5.2 使用骨架创建Maven项目"></a>5.2 使用骨架创建Maven项目</h3><ol>
+<li>新建一个模块。选择骨架创建maven项目，这里选择quick-start</li>
+</ol>
+<p><img src="/images/image-20220121164039937.png" srcset="/img/loading.gif" lazyload></p>
+<p>项目结构如下：</p>
+<p><img src="/images/image-20220121164402283.png" srcset="/img/loading.gif" lazyload></p>
+<p>按照maven项目的经典结构进行改造，改造后的结果如下：</p>
+<p><img src="/images/image-20220121164437724.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="6-依赖管理"><a href="#6-依赖管理" class="headerlink" title="6 依赖管理"></a>6 依赖管理</h2><h3 id="6-1-项目搭建"><a href="#6-1-项目搭建" class="headerlink" title="6.1 项目搭建"></a>6.1 项目搭建</h3><p>创建三个maven模块，project1，project2，project3，分别添加log4j的依赖，版本号依次为2.13.0，2.13.1，2.13.2，项目结构如下：</p>
+<p><img src="/images/image-20220121170201713.png" srcset="/img/loading.gif" lazyload></p>
+<p>各个模块的maven依赖如下：</p>
+<p><img src="/images/image-20220121170234318.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="6-2-依赖配置"><a href="#6-2-依赖配置" class="headerlink" title="6.2 依赖配置"></a>6.2 依赖配置</h3><p>依赖：指当前项目运行所需的jar，一个项目可以设置多个依赖<br>格式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 设置当前项目所依赖的所有jar --&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span> <br>    <span class="hljs-comment">&lt;!-- 设置具体的依赖 --&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-comment">&lt;!-- 依赖所属群组id --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>        <span class="hljs-comment">&lt;!-- 依赖所属项目id --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>        <span class="hljs-comment">&lt;!-- 版本号 --&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="6-3-依赖传递"><a href="#6-3-依赖传递" class="headerlink" title="6.3 依赖传递"></a>6.3 依赖传递</h3><h4 id="6-3-1-概念"><a href="#6-3-1-概念" class="headerlink" title="6.3.1 概念"></a>6.3.1 概念</h4><p>直接依赖：在当前项目中通过依赖配置建立的依赖关系<br>间接依赖：被依赖的资源如果依赖其他资源，则当前项目间接依赖其他资源</p>
+<p><img src="/images/image-20220121170443225.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="6-3-2-依赖传递的冲突问题"><a href="#6-3-2-依赖传递的冲突问题" class="headerlink" title="6.3.2 依赖传递的冲突问题"></a>6.3.2 依赖传递的冲突问题</h4><p>路径优先：当依赖中出现相同的资源，层级越深，优先级越低，反之越高<br>声明优先：当资源在相同层级被依赖时，配置顺序靠前的覆盖靠后的<br>特殊优先：当同级配置了相同资源的不同版本，后配置的覆盖先配置的</p>
+<p><img src="/images/image-20220121171540596.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<p>project2依赖project3：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- project2的pom --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.hongyi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>project3<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在project3中添加junit的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>查看此时的依赖关系</p>
+<p><img src="/images/image-20220121171129186.png" srcset="/img/loading.gif" lazyload></p>
+<p>对当前项目project2而言，project3和log4j:2.13.1为1度依赖，而project3的log4j:2.13.2为2度依赖，因此被忽略（omitted）</p>
+<h4 id="6-3-3-可选依赖"><a href="#6-3-3-可选依赖" class="headerlink" title="6.3.3 可选依赖"></a>6.3.3 可选依赖</h4><p>可选依赖是指对外隐藏当前所依赖的资源，即不透明性。配置是在被依赖方。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 添加这一选项，并设为true --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220121172029873.png" srcset="/img/loading.gif" lazyload></p>
+<p>发现该依赖被隐藏了。</p>
+<h4 id="6-3-4-排除依赖"><a href="#6-3-4-排除依赖" class="headerlink" title="6.3.4 排除依赖"></a>6.3.4 排除依赖</h4><p>排除依赖是主动断开依赖的资源，被排除的资源不需要指定版本。配置是在依赖方。</p>
+<p>例如project2要排除掉project3中的依赖log4j:2.13.2（虽然根据依赖冲突的解决也没有生效）。在project2的pom文件中添加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 要排除掉project3中的log4j依赖 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.hongyi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>project3<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<p><img src="/images/image-20220121180142958.png" srcset="/img/loading.gif" lazyload></p>
+<p>发现project2中没有了log4j:2.13.2的依赖。只剩下junit的依赖</p>
+<h3 id="6-4-依赖范围"><a href="#6-4-依赖范围" class="headerlink" title="6.4 依赖范围"></a>6.4 依赖范围</h3><h4 id="6-4-1-概述"><a href="#6-4-1-概述" class="headerlink" title="6.4.1 概述"></a>6.4.1 概述</h4><p>依赖的jar默认情况可以在任何地方使用，可以通过scope标签设定其作用范围</p>
+<p>作用范围</p>
+<ul>
+<li>主程序范围有效（main文件范围内）</li>
+<li>测试程序范围有效（test文件范围内）</li>
+<li>是否参与打包（package指令范围内）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>主代码</th>
+<th>测试代码</th>
+<th>打包</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>compile（默认)</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>log4j</td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>junit</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>jdbc</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<p>例如在project2中新增依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.9<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<p><img src="/images/image-20220121181457657.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="6-4-2-依赖范围传递性"><a href="#6-4-2-依赖范围传递性" class="headerlink" title="6.4.2 依赖范围传递性"></a>6.4.2 依赖范围传递性</h4><p>带有依赖范围的资源在进行传递时，作用范围将受到影响。</p>
+<p><img src="/images/image-20220121181641821.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="7-生命周期与插件"><a href="#7-生命周期与插件" class="headerlink" title="7 生命周期与插件"></a>7 生命周期与插件</h2><h3 id="7-1-项目构建生命周期"><a href="#7-1-项目构建生命周期" class="headerlink" title="7.1 项目构建生命周期"></a>7.1 项目构建生命周期</h3><p>Maven构建生命周期描述的是一次构建过程经历了多少个事件</p>
+<p><img src="/images/image-20220122132925074.png" srcset="/img/loading.gif" lazyload></p>
+<p>Maven对项目构建的生命周期划分为3套：</p>
+<ul>
+<li>clean：清理工作</li>
+<li>default：核心工作，例如编译，测试，打包，部署等</li>
+<li>site：产生报告，发布站点</li>
+</ul>
+<blockquote>
+<p>clean生命周期</p>
+</blockquote>
+<ul>
+<li>pre-clean：执行一些需要在clean之前完成的工作</li>
+<li>clean： 移除所有上一次构建生成的文件</li>
+<li>post-clean：执行一些需要在clean之后立刻完成的工作</li>
+</ul>
+<blockquote>
+<p>default构建生命周期</p>
+</blockquote>
+<p><img src="/images/image-20220122133255620.png" srcset="/img/loading.gif" lazyload></p>
+<p>说明：图中标红的是Maven典型（常用）的构建生命周期点。</p>
+<p>例如当执行mvn compile命令时，会从头（mvn validate）开始执行命令至mvn compile初。</p>
+<p>又如执行mvn package命令时，也会从头开始执行，直到mvn package命令处停止。</p>
+<blockquote>
+<p>site构建生命周期</p>
+</blockquote>
+<p><img src="/images/image-20220122133316989.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/image-20220122135358105.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="7-2-插件"><a href="#7-2-插件" class="headerlink" title="7.2 插件"></a>7.2 插件</h3><p>插件与生命周期内的阶段绑定，在执行到对应生命周期时执行对应的插件功能<br>默认maven在各个生命周期上绑定有预设的功能<br>通过插件可以自定义其他功能<br>在官网中可以查阅到各种插件：</p>
+<p><img src="/images/image-20220122133736137.png" srcset="/img/loading.gif" lazyload></p>
+<p>理解：生命周期相当于人活到了几岁，而插件相当于在几岁时需要做哪些事情。</p>
+<blockquote>
+<p>演示示例——自定义插件</p>
+</blockquote>
+<p>项目搭建：在project3中的主类和测试类中分别创建Demo.java和DemoTest.java</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;source code plugin...&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DemoTest</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;test source code plugin...&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>自定义插件写在<bulid>标签中。在project3的pom文件中写入：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 自定义插件所需的坐标 --&gt;</span><br>            <span class="hljs-comment">&lt;!-- 这个插件的功能是生成项目的java源码 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-source-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 定义在哪个生命周期点执行，可定义多个生命周期点execution --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span><br>                    <span class="hljs-comment">&lt;!-- 定义在什么范围类使得插件生效，可定义多个范围goal --&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span><br>                        <span class="hljs-comment">&lt;!-- 定义在什么范围类使得插件生效 --&gt;</span><br>                        <span class="hljs-comment">&lt;!-- jar表示在main中生效 --&gt;</span><br>                        <span class="hljs-comment">&lt;!-- test-jar表示在test中生效 --&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span><br>                    <span class="hljs-comment">&lt;!-- 在哪个生命周期点执行，此处为generate-test-resources --&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>generate-test-resources<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220122140049804.png" srcset="/img/loading.gif" lazyload></p>
+<p>此处演示在generate-test-resources处自定义了一个插件，该插件生成项目的源码文件。意味着，例如执行mvn test时，会执行到该插件。执行mvn compile时，不会执行到该插件。而且该插件只会生成main中的源代码。</p>
+<ol>
+<li>刷新maven后，可看到该插件：</li>
+</ol>
+<p><img src="/images/image-20220122140449012.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>执行mvn compile，发现target并没有生成源码文件</li>
+</ol>
+<p><img src="/images/image-20220122140607193.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>执行mvn test，发现生成了源码文件</li>
+</ol>
+<p><img src="/images/image-20220122140707370.png" srcset="/img/loading.gif" lazyload></p>
+<p>打开文件，发现是main的源码：</p>
+<p><img src="/images/image-20220122140806790.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>添加一个goal为test-jar。首先执行clean，再执行package：</li>
+</ol>
+<p><img src="/images/image-20220122140944862.png" srcset="/img/loading.gif" lazyload></p>
+<p>发现有打包好的工程文件、main源码和test源码。</p>
+<p><img src="/images/image-20220122141025450.png" srcset="/img/loading.gif" lazyload></p>
+<p><em><strong>以下为Maven高级部分</strong></em></p>
+<h2 id="8-分模块开发与设计"><a href="#8-分模块开发与设计" class="headerlink" title="8 分模块开发与设计"></a>8 分模块开发与设计</h2><h3 id="8-1-目标"><a href="#8-1-目标" class="headerlink" title="8.1 目标"></a>8.1 目标</h3><p>目标：将ssm项目拆分。</p>
+<p><img src="/images/image-20220122151324949.png" srcset="/img/loading.gif" lazyload></p>
+<p>如上图所示，将ssm项目拆分成右侧几个模块。</p>
+<h3 id="8-2-ssm-pojo拆分"><a href="#8-2-ssm-pojo拆分" class="headerlink" title="8.2 ssm-pojo拆分"></a>8.2 ssm-pojo拆分</h3><p>新建一个maven项目模块</p>
+<p><img src="/images/image-20220122151519992.png" srcset="/img/loading.gif" lazyload></p>
+<p>拷贝原始项目中对应的相关代码到该模块中，删除不必要的测试类和配置文件</p>
+<p><img src="/images/image-20220122151754885.png" srcset="/img/loading.gif" lazyload></p>
+<p>这个模块的pom没有依赖任何资源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="8-3-ssm-dao拆分"><a href="#8-3-ssm-dao拆分" class="headerlink" title="8.3 ssm_dao拆分"></a>8.3 ssm_dao拆分</h3><p>新建模块ssm_dao，拷贝原始项目中对应的相关代码到该模块中，删除不必要的测试类和非dao层的配置文件。</p>
+<p><img src="/images/image-20220122153355243.png" srcset="/img/loading.gif" lazyload></p>
+<p>对于dao层的pom文件内容如下（即所需的资源）：注意ssm_pojo资源的导入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--导入资源文件pojo--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--spring环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--mybatis环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--mysql环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.47<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--spring整合jdbc--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--spring整合mybatis--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.0.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--druid连接池--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.16<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--分页插件坐标--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行mvn compile发现构建失败：</p>
+<p><img src="/images/image-20220122153626040.png" srcset="/img/loading.gif" lazyload></p>
+<p>原因在于，导入了ssm_pojo的资源坐标，但是在本地仓库中没有这个资源，因此需要对ssm_pojo项目进行mvn install，将其安装到本地仓库：</p>
+<p><img src="/images/image-20220122153759349.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后再对ssm_dao进行编译，通过。</p>
+<p><img src="/images/image-20220122153839665.png" srcset="/img/loading.gif" lazyload></p>
+<p>对dao的配置文件applicationContext.xml进行修改，删去非dao层的代码：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--开启bean注解扫描--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.itheima&quot;</span>/&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--加载properties文件--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;classpath*:jdbc.properties&quot;</span>/&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--数据源--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;driverClassName&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.driver&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.url&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.username&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;jdbc.password&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--整合mybatis到spring中--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;typeAliasesPackage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.itheima.domain&quot;</span>/&gt;</span></span><br><span class="language-xml">        <span class="hljs-comment">&lt;!--分页插件--&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;plugins&quot;</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span></span><br><span class="language-xml">                    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;properties&quot;</span>&gt;</span></span><br><span class="language-xml">                        <span class="hljs-tag">&lt;<span class="hljs-name">props</span>&gt;</span></span><br><span class="language-xml">                            <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;helperDialect&quot;</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span></span><br><span class="language-xml">                            <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;reasonable&quot;</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span></span><br><span class="language-xml">                        <span class="hljs-tag">&lt;/<span class="hljs-name">props</span>&gt;</span></span><br><span class="language-xml">                    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--映射扫描--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;basePackage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.itheima.dao&quot;</span>/&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="8-4-ssm-service拆分"><a href="#8-4-ssm-service拆分" class="headerlink" title="8.4 ssm_service拆分"></a>8.4 ssm_service拆分</h3><p>新建模块ssm_service，拷贝原始项目中对应的相关代码到该模块中，删除不必要的非service层的配置文件。注意保留测试类test。</p>
+<p><img src="/images/image-20220122160937202.png" srcset="/img/loading.gif" lazyload></p>
+<p>对于service层的pom文件内容如下（即所需的资源）：注意ssm_dao资源的导入，此外无需导入ssm_pojo的资源，因为他间接依赖了ssm_dao的ssm_pojo资源。对ssm_dao进行install命令。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--导入ssm_dao的资源--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_dao<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--spring环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--junit单元测试--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--spring整合junit--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>对ssm_service的配置文件applicationContext.xml进行修改，删去非service层的代码，此外将其修改为applicationContext-service.xml。同理将ssm_dao的配置文件名修改为applicationContext-dao.xml：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:tx</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/tx&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="hljs-string"><span class="hljs-tag">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd</span></span><br><span class="hljs-string"><span class="hljs-tag">        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&quot;</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!--开启bean注解扫描--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.itheima&quot;</span>/&gt;</span><br><br>    <span class="hljs-comment">&lt;!--开启注解式事务--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tx:annotation-driven</span> <span class="hljs-attr">transaction-manager</span>=<span class="hljs-string">&quot;txManager&quot;</span>/&gt;</span><br><br>    <span class="hljs-comment">&lt;!--事务管理器--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;txManager&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>修改单元测试引入的配置文件名，由单个文件修改为多个文件：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">@RunWith(SpringJUnit4ClassRunner.<span class="hljs-keyword">class</span>)<br>// 修改这里：要引入dao层的配置文件<br>@ContextConfiguration(locations = &#123;&quot;classpath:applicationContext-service.xml&quot;, &quot;classpath:applicationContext-dao.xml&quot;&#125;)<br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> UserServiceTest &#123;<br><br>    @Autowired<br>    private UserService userService;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testSave()&#123;<br>        <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">User</span>();<br>        <span class="hljs-keyword">user</span>.setUserName(&quot;Jock&quot;);<br>        <span class="hljs-keyword">user</span>.setPassword(&quot;root&quot;);<br>        <span class="hljs-keyword">user</span>.setRealName(&quot;Jockme&quot;);<br>        <span class="hljs-keyword">user</span>.setGender(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">user</span>.setBirthday(<span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-number">333333000000</span>L));<br><br>        userService.save(<span class="hljs-keyword">user</span>);<br>    &#125;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testDelete()&#123;<br>        <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">User</span>();<br>        userService.<span class="hljs-keyword">delete</span>(<span class="hljs-number">2</span>);<br>    &#125;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testUpdate()&#123;<br>        <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">User</span>();<br>        <span class="hljs-keyword">user</span>.setUuid(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">user</span>.setUserName(&quot;Jockme&quot;);<br>        <span class="hljs-keyword">user</span>.setPassword(&quot;root&quot;);<br>        <span class="hljs-keyword">user</span>.setRealName(&quot;JockIsMe&quot;);<br>        <span class="hljs-keyword">user</span>.setGender(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">user</span>.setBirthday(<span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-number">333333000000</span>L));<br><br>        userService.<span class="hljs-keyword">update</span>(<span class="hljs-keyword">user</span>);<br>    &#125;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testGet()&#123;<br>        <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = userService.<span class="hljs-keyword">get</span>(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">user</span>);<br>    &#125;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testGetAll()&#123;<br>        PageInfo&lt;<span class="hljs-keyword">User</span>&gt; <span class="hljs-keyword">all</span> = userService.getAll(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">all</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">all</span>.getList().<span class="hljs-keyword">get</span>(<span class="hljs-number">0</span>));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">all</span>.getList().<span class="hljs-keyword">get</span>(<span class="hljs-number">1</span>));<br>    &#125;<br><br>    @Test<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testLogin()&#123;<br>        <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = userService.<span class="hljs-keyword">login</span>(&quot;Jockme&quot;, &quot;root&quot;);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">user</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行mvn test进行用例测试，通过。最后执行mvn install，将service层代码安装到本地仓库中。</p>
+<p><img src="/images/image-20220122164503334.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="8-5-ssm-controller拆分"><a href="#8-5-ssm-controller拆分" class="headerlink" title="8.5 ssm_controller拆分"></a>8.5 ssm_controller拆分</h3><p>利用骨架webapp新建maven模块ssm_controller。拷贝原始项目中对应的相关代码到该模块中，删除不必要的非controller层的配置文件。</p>
+<p><img src="/images/image-20220122164047807.png" srcset="/img/loading.gif" lazyload></p>
+<p>对于controller层的pom文件内容如下（即所需的资源）：注意ssm_service资源的导入和间接依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--导入ssm_service的资源--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_service<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>  <span class="hljs-comment">&lt;!--springmvc环境--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--jackson相关坐标3个--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jackson-databind<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--servlet环境--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.servlet-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>provided<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--设置插件--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--具体的插件配置--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">port</span>&gt;</span>80<span class="hljs-tag">&lt;/<span class="hljs-name">port</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>修改web.xml中的加载spring环境的配置文件（dao层和service层），使用*进行通配</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sqf">&lt;context-<span class="hljs-built_in">param</span>&gt;<br>  &lt;<span class="hljs-built_in">param</span>-<span class="hljs-built_in">name</span>&gt;contextConfigLocation&lt;/<span class="hljs-built_in">param</span>-<span class="hljs-built_in">name</span>&gt;<br>  &lt;<span class="hljs-built_in">param</span>-value&gt;classpath*:applicationContext-*.xml&lt;/<span class="hljs-built_in">param</span>-value&gt;<br>&lt;/context-<span class="hljs-built_in">param</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>配置tomcat服务器并使用postman测试：<a target="_blank" rel="noopener" href="http://localhost:8080/user?userName=Mark&amp;password=123456&amp;realName=Hongyi&amp;gender=1&amp;birthday=2022/01/06">http://localhost:8080/user?userName=Mark&amp;password=123456&amp;realName=Hongyi&amp;gender=1&amp;birthday=2022/01/06</a></p>
+<p><img src="/images/image-20220122164336440.png" srcset="/img/loading.gif" lazyload></p>
+<p>数据库中：</p>
+<p><img src="/images/image-20220122164352087.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="8-6-小结"><a href="#8-6-小结" class="headerlink" title="8.6 小结"></a>8.6 小结</h3><p>分模块开发：</p>
+<ul>
+<li>模块中仅包含当前模块对应的功能类与配置文件</li>
+<li>spring核心配置根据模块功能不同进行独立制作</li>
+<li>当前模块所依赖的模块通过导入坐标的形式加入当前模块后才可以使用</li>
+<li>web.xml需要加载所有的spring核心配置文件</li>
+</ul>
+<h2 id="9-聚合和继承"><a href="#9-聚合和继承" class="headerlink" title="9 聚合和继承"></a>9 聚合和继承</h2><h3 id="9-1-聚合"><a href="#9-1-聚合" class="headerlink" title="9.1 聚合"></a>9.1 聚合</h3><p>聚合：多模块的构建维护。</p>
+<p><img src="/images/image-20220122165852909.png" srcset="/img/loading.gif" lazyload></p>
+<p>聚合作用：聚合用于快速构建maven工程，一次性构建多个项目或模块</p>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<p>创建一个空模块ssm，该项目中只有一个pom文件</p>
+<p><img src="/images/image-20220122170016494.png" srcset="/img/loading.gif" lazyload></p>
+<p>打包类型定义为pom，并定义当前模块进行构建时关联的其他模块名称</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义该工程，用于进行构建管理--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--管理的工程列表--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>../ssm_dao<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>../ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>../ssm_controller<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>../ssm_service<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>注意：参与聚合操作的模块最终执行顺序与模块间的依赖关系有关，与配置顺序无关</p>
+<p><img src="/images/image-20220122170202646.png" srcset="/img/loading.gif" lazyload></p>
+<p>执行mvn install并观察：</p>
+<ul>
+<li>各个模块的打包方式和打包顺序</li>
+</ul>
+<p><img src="/images/image-20220122170222472.png" srcset="/img/loading.gif" lazyload></p>
+<p>打包耗时</p>
+<p><img src="/images/image-20220122170257939.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="9-2-继承"><a href="#9-2-继承" class="headerlink" title="9.2 继承"></a>9.2 继承</h3><h4 id="9-2-1-概述和示例"><a href="#9-2-1-概述和示例" class="headerlink" title="9.2.1 概述和示例"></a>9.2.1 概述和示例</h4><p>继承：模块依赖关系维护。</p>
+<p><img src="/images/image-20220122180752810.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>继承作用：通过继承可以实现在子工程中沿用父工程的配置</p>
+</li>
+<li><p>maven中的继承与java中的继承相似，在子工程中配置继承关系</p>
+<blockquote>
+<p>示例</p>
+</blockquote>
+</li>
+</ul>
+<p>在父工程ssm中声明依赖管理，将子工程所有的依赖都声明在此处。利用标签<dependencyManagement></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--声明此处进行依赖管理--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--具体的依赖--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--添加自己工程的依赖--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_dao<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_service<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--springmvc环境--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--jackson相关坐标3个--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jackson-databind<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--只展示了部分依赖--&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在子工程中定义父工程</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义该工程的父工程--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--父工程的名字--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--父工程的pom文件--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>&gt;</span>../ssm/pom.xml<span class="hljs-tag">&lt;/<span class="hljs-name">relativePath</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>此时，子工程的依赖的版本号可以省略，例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--导入资源文件pojo--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>同理，插件的管理也可以在父工程中声明：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">pluginManagement</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--设置插件--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-comment">&lt;!--具体的插件配置--&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">port</span>&gt;</span>80<span class="hljs-tag">&lt;/<span class="hljs-name">port</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">pluginManagement</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>子工程中插件的版本和相关配置就可以省略</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--设置插件--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--具体的插件配置--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="9-2-2-继承的资源"><a href="#9-2-2-继承的资源" class="headerlink" title="9.2.2 继承的资源"></a>9.2.2 继承的资源</h4><p>以下资源，子工程都可以从父工程中继承：</p>
+<p><img src="/images/image-20220122181446745.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="9-2-3-继承和聚合的区别"><a href="#9-2-3-继承和聚合的区别" class="headerlink" title="9.2.3 继承和聚合的区别"></a>9.2.3 继承和聚合的区别</h4><p>作用：</p>
+<ul>
+<li>聚合用于快速构建项目</li>
+<li>继承用于快速配置</li>
+</ul>
+<p>相同点：</p>
+<ul>
+<li>聚合与继承的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中</li>
+<li>聚合与继承均属于设计型模块，并无实际的模块内容</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>聚合是在当前模块中配置关系，聚合可以感知到参与聚合的模块有哪些</li>
+<li>继承是在子模块中配置关系，父模块无法感知哪些子模块继承了自己</li>
+</ul>
+<p> </p>
+<h3 id="9-3-属性"><a href="#9-3-属性" class="headerlink" title="9.3 属性"></a>9.3 属性</h3><h4 id="9-3-1-自定义属性"><a href="#9-3-1-自定义属性" class="headerlink" title="9.3.1 自定义属性"></a>9.3.1 自定义属性</h4><ul>
+<li>作用：等同于定义变量，方便统一维护</li>
+<li>配置位置：父工程的pom文件</li>
+<li>标签：<properties></li>
+<li>调用格式：${ }</li>
+</ul>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<p>在父工程中的pom文件内：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义自定义的属性--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--定义自定义的属性--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">spring.version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">spring.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">junit.version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">junit.version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>调用：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!--springmvc环境--&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;spring.version&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="9-3-2-内置属性"><a href="#9-3-2-内置属性" class="headerlink" title="9.3.2 内置属性"></a>9.3.2 内置属性</h4><ul>
+<li>作用：使用maven内置属性，快速配置</li>
+</ul>
+<p>例如，父工程和子工程的版本号一样，可以直接使用父工程的版本内置属性${version}：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!--添加自己工程的依赖--&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_pojo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;version&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_dao<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;version&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.itheima<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ssm_service<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;version&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="9-3-3-其他属性"><a href="#9-3-3-其他属性" class="headerlink" title="9.3.3 其他属性"></a>9.3.3 其他属性</h4><p>其他的属性类别还有Setting属性、Java系统属性、环境变量属性，了解即可。</p>
+<h3 id="9-4-版本管理"><a href="#9-4-版本管理" class="headerlink" title="9.4 版本管理"></a>9.4 版本管理</h3><h4 id="9-4-1-工程版本区分"><a href="#9-4-1-工程版本区分" class="headerlink" title="9.4.1 工程版本区分"></a>9.4.1 工程版本区分</h4><p><img src="/images/image-20220122183813865.png" srcset="/img/loading.gif" lazyload></p>
+<p>SNAPSHOT快照版本</p>
+<ul>
+<li>项目开发过程中，为方便团队成员合作，解决模块间相互依赖和时时更新的问题，开发者对每个模块进行构建的时候，输出的临时性版本叫快照版本（测试阶段版本）</li>
+<li>快照版本会随着开发的进展不断更新</li>
+</ul>
+<p>RELEASE发布版本</p>
+<ul>
+<li>项目开发到进入阶段里程碑后，向团队外部发布较为稳定的版本，这种版本所对应的构件文件是稳定的，即便进行功能的后续开发，也不会改变当前发布版本内容，这种版本称为发布版本</li>
+</ul>
+<p> </p>
+<h4 id="9-4-2-工程版本号约定"><a href="#9-4-2-工程版本号约定" class="headerlink" title="9.4.2 工程版本号约定"></a>9.4.2 工程版本号约定</h4><p>约定规范：</p>
+<ul>
+<li>&lt;主版本&gt;.&lt;次版本&gt;.&lt;增量版本&gt;.&lt;里程碑版本&gt;</li>
+<li>主版本∶表示项目重大架构的变更，如∶spring5相较于spring4的迭代次版本∶表示有较大的功能增加和变化，或者全面系统地修复漏洞</li>
+<li>增量版本∶表示有重大漏洞的修复</li>
+<li>里程碑版本∶表明一个版本的里程碑（版本内部）。这样的版本同下一个正式版本相比，相对来说不是很稳定，有待更多的测试</li>
+</ul>
+<p>范例：</p>
+<ul>
+<li>5.1.9.RELEASE</li>
+</ul>
+<h3 id="9-5-资源配置"><a href="#9-5-资源配置" class="headerlink" title="9.5 资源配置"></a>9.5 资源配置</h3><p>资源配置多文件维护：</p>
+<p><img src="/images/image-20220122184324524.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置文件引用pom属性：</p>
+<ul>
+<li>作用：在任意配置文件中加载pom文件中定义的属性</li>
+<li>调用格式：${ }</li>
+</ul>
+<blockquote>
+<p>示例</p>
+</blockquote>
+<p>例如jdbc.properties要读取父工程pom文件中的属性。首先在父工程pom文件中的<build>标签中：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bulid</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--配置资源文件对应的信息--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-comment">&lt;!--各个项目下所有的资源路径的目录--&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;project.basedir&#125;</span><span class="language-xml">/src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-comment">&lt;!--开启对配置文件的资源加载过滤--&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!--针对test目录下的配置资源文件对应的信息--&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">testResources</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">testResource</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-comment">&lt;!--各个项目下所有的资源路径的目录--&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>$</span><span class="hljs-template-variable">&#123;project.basedir&#125;</span><span class="language-xml">/src/test/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-comment">&lt;!--开启对配置文件的资源加载过滤--&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">testResource</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">testResources</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">bulid</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>设置属性：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--定义自定义的属性--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">spring.version</span>&gt;</span>5.1.9.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">spring.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">junit.version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">junit.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">jdbc.url</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/ssm_db?useSSL=false<span class="hljs-tag">&lt;/<span class="hljs-name">jdbc.url</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>jdbc.properties内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">jdbc.driver</span>=com.mysql.jdbc.Driver<br><span class="hljs-comment"># 引用pom文件中的属性</span><br><span class="hljs-attr">jdbc.url</span>=<span class="hljs-variable">$&#123;jdbc.url&#125;</span><br><span class="hljs-attr">jdbc.username</span>=root<br><span class="hljs-attr">jdbc.password</span>=<span class="hljs-number">12345678</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="9-6-多环境开发配置"><a href="#9-6-多环境开发配置" class="headerlink" title="9.6 多环境开发配置"></a>9.6 多环境开发配置</h3><p>多环境兼容：</p>
+<p><img src="/images/image-20220122185714834.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>配置方法</p>
+</blockquote>
+<p>在父工程pom文件中：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--创建多环境--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--定义具体的环境：生产环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--定义环境对应的唯一名称--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>pro_env<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--定义环境中使用的属性值--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">jdbc.url</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/ssm_db?useSSL=false<span class="hljs-tag">&lt;/<span class="hljs-name">jdbc.url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--定义具体的环境：开发环境--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--定义环境对应的唯一名称--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>dev_env<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--定义环境中使用的属性值--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">jdbc.url</span>&gt;</span>jdbc:mysql://127.0.0.2:3306/ssm_db?useSSL=false<span class="hljs-tag">&lt;/<span class="hljs-name">jdbc.url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--设置默认启动--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>加载指定的环境<br>调用格式：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">mvn 指令 -P 环境<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<p>范例：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> install -P dev_env<br></code></pre></td></tr></table></figure>
+
+<p>例如：新建一个maven配置，在开发环境执行install命令：</p>
+<p><img src="/images/image-20220122202158001.png" srcset="/img/loading.gif" lazyload></p>
+<p>执行后查看jdbc.properties文件：</p>
+<p><img src="/images/image-20220122202241524.png" srcset="/img/loading.gif" lazyload></p>
+<p>可见是按照开发环境的地址127.0.0.2进行项目安装的。</p>
+<h3 id="9-7-跳过测试"><a href="#9-7-跳过测试" class="headerlink" title="9.7 跳过测试"></a>9.7 跳过测试</h3><blockquote>
+<p>应用场景</p>
+</blockquote>
+<ul>
+<li>整体模块功能未开发</li>
+<li>模块中某个功能未开发完毕</li>
+<li>单个功能更新调试导致其他功能失败</li>
+<li>快速打包（因为测试需要耗费时间）</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>使用操作界面跳过测试</p>
+</blockquote>
+<p><img src="/images/image-20220122202910416.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="10-Maven私服"><a href="#10-Maven私服" class="headerlink" title="10 Maven私服"></a>10 Maven私服</h2><p>分模块合作开发：</p>
+<p><img src="/images/image-20220122210750754.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="10-1-Nexus私服搭建"><a href="#10-1-Nexus私服搭建" class="headerlink" title="10.1 Nexus私服搭建"></a>10.1 Nexus私服搭建</h3><ul>
+<li>Nexus是Sonatype公司的一款maven私服产品
+ </li>
+<li>下载地址∶https∶&#x2F;&#x2F;help.sonatype.com&#x2F;repomanager3&#x2F;download</li>
+</ul>
+<blockquote>
+<p>搭建步骤</p>
+</blockquote>
+<ol>
+<li>服务器首先必须配置好java的环境</li>
+<li>将下载好的压缩包解压缩至任意位置</li>
+</ol>
+<p><img src="/images/image-20220122211139805.png" srcset="/img/loading.gif" lazyload></p>
+<p>nexus服务所需内存等参数位于&#x2F;bin&#x2F;nexus.vmoptions中</p>
+<p><img src="/images/image-20220122211252958.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/image-20220122211328647.png" srcset="/img/loading.gif" lazyload></p>
+<p>nexus服务的端口等参数设置位于&#x2F;etc&#x2F;nexus-default.properties中</p>
+<p><img src="/images/image-20220122211436743.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/image-20220122211501420.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置环境变量并刷新</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vi <span class="hljs-regexp">/etc/</span>profile<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">NEXUS_HOME</span>=/usr/local/nexus #nexus的目录<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">RUN_AS_USER</span>=root<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">source</span> <span class="hljs-regexp">/etc/</span>profile<br></code></pre></td></tr></table></figure>
+
+<p>进入nexus目录并运行</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/bin/</span>nexus start<br></code></pre></td></tr></table></figure>
+
+<p>访问配置好的端口网址即可</p>
+<p><img src="/images/image-20220122211748769.png" srcset="/img/loading.gif" lazyload></p>
+<p>停止服务运行</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/bin/</span>nexus stop<br></code></pre></td></tr></table></figure>
+
+<h3 id="10-2-Nexus操作"><a href="#10-2-Nexus操作" class="headerlink" title="10.2 Nexus操作"></a>10.2 Nexus操作</h3><h4 id="10-2-1-仓库分类和手工资源上传"><a href="#10-2-1-仓库分类和手工资源上传" class="headerlink" title="10.2.1 仓库分类和手工资源上传"></a>10.2.1 仓库分类和手工资源上传</h4><p>私服资源的获取：下图所示，我们要把快照版的资源放在一个仓库里，把发行版的资源放在一个仓库里，第三方公共资源放在一个仓库里，这样方便进行管理，势必要对仓库进行分类和分组</p>
+<p><img src="/images/image-20220122212618331.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>仓库分类</p>
+</blockquote>
+<p>宿主仓库hosted：保存无法从中央仓库获取的资源</p>
+<ul>
+<li>自主研发</li>
+<li>第三方非开源项目</li>
+</ul>
+<p>代理仓库proxy：代理远程仓库，通过nexus访问其他公共仓库，例如中央仓库</p>
+<p>仓库组group：</p>
+<ul>
+<li>将若干仓库组成一个群组，简化配置</li>
+<li>仓库组不能保存资源，属于设计型仓库</li>
+</ul>
+<p><img src="/images/image-20220122213102173.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>操作实例</p>
+</blockquote>
+<p>新建一个仓库，例如heima-release</p>
+<p><img src="/images/image-20220122213829189.png" srcset="/img/loading.gif" lazyload></p>
+<p>仓库类型选择宿主仓库maven2(hosted)</p>
+<p><img src="/images/image-20220122213921292.png" srcset="/img/loading.gif" lazyload></p>
+<p>创建好后，将其加入到maven-public仓库组中，方便管理</p>
+<p><img src="/images/image-20220122214048929.png" srcset="/img/loading.gif" lazyload></p>
+<p>将ssm_pojo打包好的jar文件上传至heima-release仓库中</p>
+<p><img src="/images/image-20220122213802054.png" srcset="/img/loading.gif" lazyload></p>
+<p>查看仓库里的ssm_pojo资源</p>
+<p><img src="/images/image-20220122214226492.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="10-2-2-本地仓库访问私服"><a href="#10-2-2-本地仓库访问私服" class="headerlink" title="10.2.2 本地仓库访问私服"></a>10.2.2 本地仓库访问私服</h4><p>idea环境中的资源上传与下载：</p>
+<p><img src="/images/image-20220123211946393.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置本地仓库访问私服的权限（setting.xml）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--让本地仓库能够访问搭建的私服的远程仓库--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--宿主仓库id--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>heima-release<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>admin<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>XXXXXXXXX<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>heima-snapshot<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>admin<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>XXXXXXXXX<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>配置本地仓库资源的下载来源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--中央仓库的资源从阿里云下载--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>nexus-aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>nexus-aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--其他的从私服下载--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>heima<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--url为maven-public仓库组的url--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>XXXXXXXXXXXX<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>配置当前项目ssm访问私服上传资源的保存位置（pom.xml）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--发布配置管理--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">distributionManagement</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--发布到发行版的仓库，注意这里的id必须和setting.xml配置的id相同--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>heima-release<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--发行版仓库的url--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://XXXXXXX/repository/heima-release/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">snapshotRepository</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--发布到快照版的仓库--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>heima-snapshot<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--快照版仓库的url--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://XXXXXXX/repository/heima-snapshot/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">snapshotRepository</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">distributionManagement</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-keyword">mvn</span> deploy<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220123214655864.png" srcset="/img/loading.gif" lazyload></p>
+<p>执行结果</p>
+<p><img src="/images/image-20220123214721101.png" srcset="/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Maven/" class="category-chain-item">Maven</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Maven/">#Maven</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Maven</div>
+      <div>http://example.com/2022/09/27/Maven笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月27日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/02/MyBatisPlus/" title="MyBatisPlus">
+                        <span class="hidden-mobile">MyBatisPlus</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
