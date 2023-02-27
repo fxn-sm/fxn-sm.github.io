@@ -1,0 +1,1250 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. CSS 基础选择器1.1 选择器的作用选择器就是根据不同需求把不同标签选择出来。 1.2 选择器分类选择器分为基础选择器和复合选择器两大类。  基础选择器由单个选择器组成 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器  1.3 标签选择器直接用 HTML 标签名作为选择器，按标签名称分类，为页面某一类标签指定统一的 CSS 样式。 语法 12345标签名 &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学习笔记（基础）">
+<meta property="og:url" content="http://example.com/2023/02/13/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. CSS 基础选择器1.1 选择器的作用选择器就是根据不同需求把不同标签选择出来。 1.2 选择器分类选择器分为基础选择器和复合选择器两大类。  基础选择器由单个选择器组成 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器  1.3 标签选择器直接用 HTML 标签名作为选择器，按标签名称分类，为页面某一类标签指定统一的 CSS 样式。 语法 12345标签名 &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/1676276427003.jpg">
+<meta property="og:image" content="http://example.com/images/1676277306533.jpg">
+<meta property="og:image" content="http://example.com/images/1676277883798.jpg">
+<meta property="article:published_time" content="2023-02-13T08:15:49.000Z">
+<meta property="article:modified_time" content="2023-02-13T08:51:43.199Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/1676276427003.jpg">
+  
+  
+  
+  <title>CSS学习笔记（基础） - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>罗罗诺亚·索隆</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CSS学习笔记（基础）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-13 16:15" pubdate>
+          2023年2月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS学习笔记（基础）</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="1-CSS-基础选择器"><a href="#1-CSS-基础选择器" class="headerlink" title="1. CSS 基础选择器"></a>1. CSS 基础选择器</h2><h3 id="1-1-选择器的作用"><a href="#1-1-选择器的作用" class="headerlink" title="1.1 选择器的作用"></a>1.1 选择器的作用</h3><p>选择器就是根据不同需求把不同标签选择出来。</p>
+<h3 id="1-2-选择器分类"><a href="#1-2-选择器分类" class="headerlink" title="1.2 选择器分类"></a>1.2 选择器分类</h3><p>选择器分为基础选择器和复合选择器两大类。</p>
+<ul>
+<li>基础选择器由单个选择器组成</li>
+<li>基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器</li>
+</ul>
+<h3 id="1-3-标签选择器"><a href="#1-3-标签选择器" class="headerlink" title="1.3 标签选择器"></a>1.3 标签选择器</h3><p>直接用 HTML 标签名作为选择器，按标签名称分类，<strong>为页面某一类标签指定统一的 CSS 样式。</strong></p>
+<p>语法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs HTML">标签名 &#123;<br>    属性1： 属性值1;<br>    属性2： 属性值2;<br>    属性3： 属性值3;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>优点 标签选择器可以把某一标签全部选择出来，快速为同类型标签设置统一样式。</p>
+<p>缺点 不能设置差异化样式，只能选择全部当前标签。</p>
+<h3 id="1-4-类选择器"><a href="#1-4-类选择器" class="headerlink" title="1.4 类选择器"></a>1.4 类选择器</h3><p>差异化选择不同标签，单独选一个或者某个标签。</p>
+<p>语法</p>
+<p>使用 <code>class</code> 属性来调用 class 类，样式点定义，结构类调用，一个或多个，开发最常用。</p>
+<p>类选择器用 <code>.</code> 号显示。</p>
+<p>注意</p>
+<ol>
+<li>类选择器用 <code>.</code> 标识，紧跟类名。</li>
+<li>小写，使用 <code>-</code> 连接单词。</li>
+<li>不要用纯数字、中文。</li>
+<li>命名有意义。</li>
+</ol>
+<h3 id="1-4-1-类选择器-多类名"><a href="#1-4-1-类选择器-多类名" class="headerlink" title="1.4.1 类选择器-多类名"></a>1.4.1 类选择器-多类名</h3><p>类名间用空格分开</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class-name1 class-name2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-5-id-选择器"><a href="#1-5-id-选择器" class="headerlink" title="1.5 id 选择器"></a>1.5 id 选择器</h3><p>id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。</p>
+<p>HTML 元素以 id 属性来设置 id 选择器，用 <code>#</code> 来定义。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs HTML">#id名 &#123;<br>    属性1: 属性值1;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>样式 <code>#</code> 定义，结构 id 调用，别人切勿使用。</p>
+<p>id 选择器与类选择器的区别</p>
+<ol>
+<li>类选择器可以被多个元素调用。</li>
+<li>id 选择器只能允许一个标签调用。</li>
+<li>类选择器使用的较多，id 选择器用于唯一特性的标签。</li>
+</ol>
+<h3 id="1-6-通配符选择器"><a href="#1-6-通配符选择器" class="headerlink" title="1.6 通配符选择器"></a>1.6 通配符选择器</h3><p>语法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs HTML">* &#123;<br>    属性1: 属性值1;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用 <code>*</code> 定义通配符选择器，选取页面中所有标签。</li>
+<li>不需要调用，自动给所有标签。</li>
+<li>特殊情况使用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs HTML">* &#123;<br>    margin: 0;<br>    padding: 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-7-基础选择器总结"><a href="#1-7-基础选择器总结" class="headerlink" title="1.7 基础选择器总结"></a>1.7 基础选择器总结</h3><table>
+<thead>
+<tr>
+<th>基础选择器</th>
+<th>作用</th>
+<th>特点</th>
+<th>使用情况</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签选择器</td>
+<td>选中所有相同标签</td>
+<td>不能差异化选择</td>
+<td>较多</td>
+<td><code>p&#123;color:red;&#125;</code></td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>选出一个或多个标签</td>
+<td>可以根据需求选择</td>
+<td>较多</td>
+<td><code>.nav &#123;color: red;&#125;</code></td>
+</tr>
+<tr>
+<td>id 选择器</td>
+<td>一次只能选出一个标签</td>
+<td>一个 id 属性在页面中只能出现一次</td>
+<td>一般配合 js 使用</td>
+<td><code>#nav &#123;color: red;&#125;</code></td>
+</tr>
+<tr>
+<td>通配符选择器</td>
+<td>选择所有标签元素</td>
+<td>选择的太多，有部分不需要</td>
+<td>特殊情况使用</td>
+<td><code>* &#123;color: red; &#125;</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>每个选择器都有自己的使用场景，都要掌握。</li>
+<li>如果是修改样式，类选择器是使用最多的。</li>
+</ul>
+<h2 id="2-CSS-字体属性"><a href="#2-CSS-字体属性" class="headerlink" title="2. CSS 字体属性"></a>2. CSS 字体属性</h2><h3 id="2-1-字体系列"><a href="#2-1-字体系列" class="headerlink" title="2.1 字体系列"></a>2.1 字体系列</h3><p>CSS 使用 <code>font-family</code> 属性定义文本字体系列。 尽量使用默认字体，保证不同浏览器的兼容性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;微软雅黑&quot;</span>, Arial, Helvetica, sans-serif;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2-字体大小"><a href="#2-2-字体大小" class="headerlink" title="2.2 字体大小"></a>2.2 字体大小</h3><p>CSS 使用 <code>font-size</code> 属性定义字体大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>px</code> 大小是我们网页常用单位</li>
+<li>谷歌浏览器默认是 <code>16px</code></li>
+<li>不同浏览器可能默认显示的字号大小不一致，我们尽量给一个明确值大小，不要默认大小</li>
+<li>可以给 <code>body</code> 指定整个页面文字大小</li>
+</ul>
+<h3 id="2-3-字体粗细"><a href="#2-3-字体粗细" class="headerlink" title="2.3 字体粗细"></a>2.3 字体粗细</h3><p>CSS 使用 <code>font-weight</code> 属性设置字体粗细</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>实际开发中，更常用数字来表示加粗或变细。<code>400</code>为<code>normal</code>，<code>700</code> 为 <code>bold</code>。 |属性值|描述| |-|-| |normal|默认值| |bold|定义粗体| |100-900|400 等价于 normal，700 等价于 bold，无单位|</p>
+<h3 id="2-4-文字样式"><a href="#2-4-文字样式" class="headerlink" title="2.4 文字样式"></a>2.4 文字样式</h3><p>CSS 使用 <code>font-style</code> 属性设置文本风格。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">p &#123; font-style: italic; &#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>normal</td>
+<td>正常显示</td>
+</tr>
+<tr>
+<td>italic</td>
+<td><em>斜体</em></td>
+</tr>
+</tbody></table>
+<p>注意：平常很少给字体加斜体，而是给斜体标签（em,i）给位不倾斜字体。</p>
+<h3 id="2-5-字体复合属性写法"><a href="#2-5-字体复合属性写法" class="headerlink" title="2.5 字体复合属性写法"></a>2.5 字体复合属性写法</h3><p>将各种字体属性写在同一选择器下，节约代码。</p>
+<p>规则</p>
+<p>严格遵守顺序，且 <code>font-sieze</code> 和 <code>font-family</code> 必须有。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">font</span>: font-style font-weight font-size/line-hight font-family;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-6-字体属性总结"><a href="#2-6-字体属性总结" class="headerlink" title="2.6 字体属性总结"></a>2.6 字体属性总结</h3><table>
+<thead>
+<tr>
+<th>字体属性</th>
+<th>表示</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>font-size</td>
+<td>字号</td>
+<td>单位是 <code>px</code></td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>字体</td>
+<td>按照团队约定来写</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>字体粗细</td>
+<td>400&#x3D;normal，700&#x3D;bold</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>字体样式</td>
+<td>italic，normal，常用 normal</td>
+</tr>
+<tr>
+<td>font</td>
+<td>属性连写</td>
+<td>顺序不能变，字体和字号属性必须有</td>
+</tr>
+</tbody></table>
+<h2 id="3-CSS-文本属性"><a href="#3-CSS-文本属性" class="headerlink" title="3. CSS 文本属性"></a>3. CSS 文本属性</h2><p>CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、缩进、行间距等。</p>
+<h3 id="3-1-文本颜色"><a href="#3-1-文本颜色" class="headerlink" title="3.1 文本颜色"></a>3.1 文本颜色</h3><p><code>color</code> 属性定义文本颜色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">color</span>: red;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>属性值 |表示颜色|属性值| |-|-| |预定义的颜色值|red,green,pink| |十六进制|#FF0000，#FF6600| |RGB 代码|rgb(255,0,0)|</p>
+<p>实际开发中，最常用的是十六进制。</p>
+<h3 id="3-2-对齐文本"><a href="#3-2-对齐文本" class="headerlink" title="3.2 对齐文本"></a>3.2 对齐文本</h3><p><code>text-align</code> 属性用于设置元素文本内容的对齐方式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">text-align</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>左对齐（默认）</td>
+</tr>
+<tr>
+<td>right</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-装饰文本"><a href="#3-3-装饰文本" class="headerlink" title="3.3 装饰文本"></a>3.3 装饰文本</h3><p><code>text-decoration</code> 属性规定添加到文本的修饰。可以给文本添加下划线、删除线、上划线等。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">text-decoration</span>: underline;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认，无装饰（最常用）</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>下划线，a 标签自带（常用）</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>上划线。（几乎不用）</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>删除线。（不常用）</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-文本缩进"><a href="#3-4-文本缩进" class="headerlink" title="3.4 文本缩进"></a>3.4 文本缩进</h3><p><code>text-indent</code>定义段落首行缩进。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  text-indet: <span class="hljs-number">5px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>em</code> 是一个相对单位，<code>1em</code> 就是一个字符所占大小。当 <code>text-indent=2em</code>，则恰好缩进两个文字。</p>
+<h3 id="3-5-行间距"><a href="#3-5-行间距" class="headerlink" title="3.5 行间距"></a>3.5 行间距</h3><p><code>line-height</code> 设置行间的距离，行间距&#x3D;文本高度+上间距+下间距</p>
+<p><img src="/images/1676276427003.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-6-文本属性总结"><a href="#3-6-文本属性总结" class="headerlink" title="3.6 文本属性总结"></a>3.6 文本属性总结</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>表示</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>文本颜色</td>
+<td>通常十六进制缩写</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>文本对齐</td>
+<td></td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>文本缩进</td>
+<td>记住 <code>text-indent: 2em;</code></td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>文本装饰</td>
+<td>记住下划线和去除下划线</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>行高</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="4-CSS-引用方式"><a href="#4-CSS-引用方式" class="headerlink" title="4. CSS 引用方式"></a>4. CSS 引用方式</h2><p>按照 CSS 书写的位置不同，CSS 样式表可以分为三大类：</p>
+<ol>
+<li>行内样式表（行内式）</li>
+<li>内部样式表（嵌入式）</li>
+<li>外部样式表（链接式）</li>
+</ol>
+<h3 id="4-1-内部样式表"><a href="#4-1-内部样式表" class="headerlink" title="4.1 内部样式表"></a>4.1 内部样式表</h3><p>将 CSS 代码写在 HTML 页面内部，单独放在一个 <code>&lt;style&gt;</code> 标签中。</p>
+<ul>
+<li><code>&lt;style&gt;</code> 理论上可以放在 HTML 文档中任何一个地方，一般放在 <code>&lt;head&gt;</code> 标签中。</li>
+<li>方便控制整个页面中的元素样式。</li>
+</ul>
+<p>练习时使用，实际开发不用。</p>
+<h3 id="4-2-行内样式表"><a href="#4-2-行内样式表" class="headerlink" title="4.2 行内样式表"></a>4.2 行内样式表</h3><p>行内样式表（内联样式表）是在元素标签内部的 <code>style</code> 属性中设定 CSS 样式，适合修改简单样式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: red; font-size: 12px&quot;</span>&gt;</span>行内样式表<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>设置当前标签样式</li>
+<li>书写繁琐，不推荐大量使用。</li>
+</ul>
+<h3 id="4-3-外部样式表"><a href="#4-3-外部样式表" class="headerlink" title="4.3 外部样式表"></a>4.3 外部样式表</h3><p>实际开发中都是外部样式表，适用于样式比较多的情况。 核心：样式单独写到 CSS 文件中，再将 CSS 文件引入到 HTML 页面中。</p>
+<p>引入格式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css文件路径&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="5-复合选择器"><a href="#5-复合选择器" class="headerlink" title="5. 复合选择器"></a>5. 复合选择器</h2><p>由基础选择器组合而成。</p>
+<ul>
+<li>后代选择器</li>
+<li>子选择器</li>
+<li>并集选择器</li>
+<li>伪类选择器</li>
+</ul>
+<h3 id="5-1-后代选择器（重要）"><a href="#5-1-后代选择器（重要）" class="headerlink" title="5.1 后代选择器（重要）"></a>5.1 后代选择器（重要）</h3><p>后代选择器又称为包含选择器，可以选择父元素里的子元素。写法是将外层标签写在前面，内层标签写在后面，中间空格分开。 <strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs CSS">元素<span class="hljs-number">1</span> 元素<span class="hljs-number">2</span> &#123; 样式声明; &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>上述语法表示选择元素 1 里面所有的元素 2</li>
+<li>可以连续嵌套，比如可以是孙子等</li>
+<li>元素 1、2 可以是任何基础标签</li>
+</ul>
+<h3 id="5-2-子选择器（重要）"><a href="#5-2-子选择器（重要）" class="headerlink" title="5.2 子选择器（重要）"></a>5.2 子选择器（重要）</h3><p>子元素选择器（子选择器）只能选择作为元素作为元素的最近一级子元素。简单理解就是选亲儿子。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs CSS">元素<span class="hljs-number">1</span> &gt; 元素<span class="hljs-number">2</span> &#123; 样式声明; &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>元素之间用大于号 <code>&gt;</code> 隔开</li>
+<li>1 为父级。二为子级，最终选择的是元素 2</li>
+<li>元素 2 必须是亲儿子。</li>
+</ul>
+<h3 id="5-3-并集选择器"><a href="#5-3-并集选择器" class="headerlink" title="5.3 并集选择器"></a>5.3 并集选择器</h3><p>并集选择器可以选择多组标签，同时为他们定义相同的样式。通常用于集体声明。</p>
+<p>并集选择器是各选择器通过英文逗号 <code>,</code> 连接而成，任何形式的选择器都可以作为并集选择器的一部分。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">元素<span class="hljs-number">1</span>, 元素<span class="hljs-number">2</span> &#123; 样式声明; &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-4-伪类选择器"><a href="#5-4-伪类选择器" class="headerlink" title="5.4 伪类选择器"></a>5.4 伪类选择器</h3><p>伪类选择器用于向某些选择器添加特殊的效果。 伪类选择器书写最大特点是用冒号 <code>:</code> 表示。 伪类选择器种类多，比如链接伪类选择器、结构选择器等。</p>
+<h4 id="5-4-1-链接伪类选择器"><a href="#5-4-1-链接伪类选择器" class="headerlink" title="5.4.1 链接伪类选择器"></a>5.4.1 链接伪类选择器</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> <span class="hljs-comment">/*选择所有未被访问的链接*/</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> <span class="hljs-comment">/*选择所有已被访问的链接*/</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-comment">/*选择鼠标指针位于其上的链接*/</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> <span class="hljs-comment">/*选择活动链接（鼠标按下未弹起的链接）*/</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>注意事项</strong></p>
+<ol>
+<li>确保样式生效，要按照 LVHA 的顺序声明：link,visited,hover, active。</li>
+<li>a 链接在浏览器中有默认样式，所以实际开发都需要给链接单独指定样式。</li>
+</ol>
+<p><strong>开发中实际写法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>  <span class="hljs-attribute">color</span>: gray;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#369</span>;<br>  <span class="hljs-attribute">text-decoration</span>: underline;<br>&#125;Copy <span class="hljs-selector-tag">to</span> clipboardErrorCopied<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-4-2-focus-伪类选择器"><a href="#5-4-2-focus-伪类选择器" class="headerlink" title="5.4.2 focus 伪类选择器"></a>5.4.2 focus 伪类选择器</h4><p><code>:focus</code> 伪类选择器用于获取焦点的表单元素。 焦点就是光标，一般情况 <code>&lt;input&gt;</code> 类表单元素才能获取，因此这个选择器也主要针对表单元素来说。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:focus</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: yellow;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-5-复合选择器总结"><a href="#5-5-复合选择器总结" class="headerlink" title="5.5 复合选择器总结"></a>5.5 复合选择器总结</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>作用</th>
+<th>特征</th>
+<th>使用情况</th>
+<th>隔开符号及用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器</td>
+<td>用来选择后代元素</td>
+<td>可以是子孙后代</td>
+<td>较多</td>
+<td>符号是空格 <code>.nav a</code></td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td>选择最近一级元素</td>
+<td>只能选亲儿子</td>
+<td>较少</td>
+<td>符号是大于 <code>.nav&gt;p</code></td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>选择某些相同样式的元素</td>
+<td>可以用于集体声明</td>
+<td>较多</td>
+<td>符号是逗号，<code>.nav, a</code></td>
+</tr>
+<tr>
+<td>链接伪类选择器</td>
+<td>选择不同状态的链接</td>
+<td>跟链接相关</td>
+<td>较多</td>
+<td>重点记住<code>a&#123;&#125;</code>和<code>a:hover&#123;&#125;</code></td>
+</tr>
+<tr>
+<td>:focus 选择器</td>
+<td>选择获得光标的表单</td>
+<td>跟表单相关</td>
+<td>较少</td>
+<td>记住<code>input:focus</code>用法</td>
+</tr>
+</tbody></table>
+<h2 id="6-元素显示模式"><a href="#6-元素显示模式" class="headerlink" title="6. 元素显示模式"></a>6. 元素显示模式</h2><h3 id="6-1-什么是元素显示模式"><a href="#6-1-什么是元素显示模式" class="headerlink" title="6.1 什么是元素显示模式"></a>6.1 什么是元素显示模式</h3><p>作用：网页的标签非常多，不同地方使用不同，了解其特点可以更好布局。</p>
+<p>HTML 元素分为块元素和行内元素。</p>
+<h3 id="6-2-块元素"><a href="#6-2-块元素" class="headerlink" title="6.2 块元素"></a>6.2 块元素</h3><p>常见的块元素有 <code>h1-h6</code>、<code>p</code>、<code>div</code>、<code>ul</code>、<code>ol</code>、<code>li</code>等。 块级元素的特点：</p>
+<ol>
+<li>独占一行。</li>
+<li>高度、宽度、外边距以及内边距都可以控制。</li>
+<li>宽度默认是容器（父级宽度）的 100%。</li>
+<li>是一个容器及盒子，里面可以方行内或块级元素。</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>文字类的标签内不能放块级元素。</li>
+<li>文字类元素有 <code>p</code>，<code>h1-h6</code>，尤其不能放 <code>div</code> 元素。</li>
+</ul>
+<h3 id="6-3-行内元素"><a href="#6-3-行内元素" class="headerlink" title="6.3 行内元素"></a>6.3 行内元素</h3><p>常见行内元素：<code>a</code>、<code>strong</code>、<code>b</code>、<code>em</code>、<code>i</code>、<code>del</code>、<code>s</code>、<code>ins</code>、<code>u</code>、<code>span</code>，典型行内元素是 <code>span</code>，行内元素也叫内联元素。</p>
+<p>行内元素的特点：</p>
+<ol>
+<li>相邻行内元素在一行上，一行可以显示多个。</li>
+<li>高、宽直接设置是无效的。</li>
+<li>默认宽度就是它本身内容宽度。</li>
+<li>行内元素只能容纳文本或其他行内元素。</li>
+</ol>
+<p><strong>注意</strong></p>
+<ul>
+<li>a 链接里面不能放链接</li>
+<li>特殊情况链接 a 里面可以放块级元素，但是给 a 转换一下块级模式最安全。</li>
+</ul>
+<h3 id="6-4-行内块元素"><a href="#6-4-行内块元素" class="headerlink" title="6.4 行内块元素"></a>6.4 行内块元素</h3><p>在行内元素中有几个特殊标签——<code>img</code>, <code>input</code>、<code>td</code>，它们同时具有块元素和行内元素的特点。</p>
+<p>有些资料称为行内块元素。</p>
+<p>行内块元素的特点：</p>
+<ol>
+<li>和相邻元素（行内块）在一行上，之间存在空白缝隙，一行可以显示多个。</li>
+<li>默认宽度是本身内容宽度。</li>
+<li>高度、行高、外边距、内边距都可以控制（块级元素特点）。</li>
+</ol>
+<h3 id="6-5-元素显示模式总结"><a href="#6-5-元素显示模式总结" class="headerlink" title="6.5 元素显示模式总结"></a>6.5 元素显示模式总结</h3><p><img src="/images/1676277306533.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="6-6-元素模式转换"><a href="#6-6-元素模式转换" class="headerlink" title="6.6 元素模式转换"></a>6.6 元素模式转换</h3><p>特殊情况下，需要将一个元素的模式转换为另外一宗模式，使其具有另外一种模式的特性。 比如想要增加链接 a 的触发范围。</p>
+<p>行内元素可以转换为块元素，块元素也能转换为行内元素。</p>
+<p>行内-&gt;块级</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>  <span class="hljs-attribute">display</span>: block;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>块级-&gt;行内</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">display</span>: inline;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>行内&#x2F;块级-&gt; 行内块元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">span</span> &#123;<br>  <span class="hljs-attribute">display</span>: inline-block;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-7-一个小技巧——单行文字垂直居中"><a href="#6-7-一个小技巧——单行文字垂直居中" class="headerlink" title="6.7 一个小技巧——单行文字垂直居中"></a>6.7 一个小技巧——单行文字垂直居中</h3><p>解决方案：让文字的行高等于盒子的高度。</p>
+<p>原理分析：行高&#x3D;文字本身高度+上空隙+下空隙&#x3D;盒子高度</p>
+<p>当行高小于盒子高度，则文字偏上；当行高大于盒子高度，文字偏下。</p>
+<h2 id="7-CSS-的背景"><a href="#7-CSS-的背景" class="headerlink" title="7. CSS 的背景"></a>7. CSS 的背景</h2><p>CSS 背景属性可以给元素添加背景样式。</p>
+<p>背景属性可以设置背景颜色、背景图片、背景平铺、背景图片位置、背景图像固定等。</p>
+<h3 id="7-1-背景颜色"><a href="#7-1-背景颜色" class="headerlink" title="7.1 背景颜色"></a>7.1 背景颜色</h3><p><code>background-color</code> 定义了元素的背景颜色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-color</span>: 颜色值;<br></code></pre></td></tr></table></figure>
+
+<p>一般而言，颜色默认值是 <code>transparent</code>（透明），我们也可以指定背景颜色为透明色或其他色。</p>
+<h3 id="7-2-背景图片"><a href="#7-2-背景图片" class="headerlink" title="7.2 背景图片"></a>7.2 背景图片</h3><p><code>background-image</code> 属性描述了元素的背景图像，实际开发用于 logo 或者一些装饰性开发的小图片或者是超大的背景图片，优点是便于控制位置。（也用于精灵图）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-image</span>: none|<span class="hljs-built_in">url</span>(<span class="hljs-string">图片url</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-3-背景平铺"><a href="#7-3-背景平铺" class="headerlink" title="7.3 背景平铺"></a>7.3 背景平铺</h3><p>若需要在 HTML 页面上对背景图进行平铺，可以使用 <code>background-repeat</code> 属性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-repeat</span>: <span class="hljs-built_in">repeat</span>(默认) | <span class="hljs-built_in">no-repeat</span>(不平铺) | repeat-x（横向上平铺） | repeat-y（纵向平铺）;<br></code></pre></td></tr></table></figure>
+
+<p>页面元素·既可以添加背景图片，也可以添加背景颜色，图片会覆盖颜色。</p>
+<h3 id="7-4-背景图片位置"><a href="#7-4-背景图片位置" class="headerlink" title="7.4 背景图片位置"></a>7.4 背景图片位置</h3><p><code>background-position</code> 可以改变图片在背景中的位置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-position</span>: x y;<br></code></pre></td></tr></table></figure>
+
+<p>参数 x 和 y 指 x 左边和 y 坐标，可以使用方位名词或者精确定位。</p>
+<table>
+<thead>
+<tr>
+<th>参数值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>length</td>
+<td>百分数 &#x2F; 由浮点数字和单位字符组成的长度值</td>
+</tr>
+<tr>
+<td>position</td>
+<td>top &#x2F; center &#x2F; bottom &#x2F; left &#x2F; center &#x2F; right 方位名词</td>
+</tr>
+</tbody></table>
+<p><strong>1.参数是方位名词</strong></p>
+<ul>
+<li>若两个值都是方位名词，则两个值前后顺序无关，比如<code>left top</code>和<code>top left</code> 效果一致。</li>
+<li>若只指定了一个方位名词，另一个值省略，则第二个值默认居中对齐。</li>
+</ul>
+<p><strong>2.参数是精确单位</strong></p>
+<ul>
+<li>第一个必定是 x 坐标。第二个是 y 坐标</li>
+<li>若只指定一个数值，则另一个必定是 y 轴居中</li>
+</ul>
+<p><strong>3.参数是混合单位</strong></p>
+<ul>
+<li>若是混合单位，则第一个值是 x 坐标，第二个值是 y 坐标。</li>
+</ul>
+<h3 id="7-5-背景图像固定"><a href="#7-5-背景图像固定" class="headerlink" title="7.5 背景图像固定"></a>7.5 背景图像固定</h3><p><code>background-attachment</code> 属性设置背景图像是否随着页面其余部分滚动。</p>
+<p><code>background-attachment</code> 后期可以制作视差滚动效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-attachment</span>: scroll | fixed;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll</td>
+<td>背景图像随着对象内容滚动</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>背景图像固定</td>
+</tr>
+</tbody></table>
+<h3 id="7-6-背景属性复合写法"><a href="#7-6-背景属性复合写法" class="headerlink" title="7.6 背景属性复合写法"></a>7.6 背景属性复合写法</h3><p>简化代码，将属性写在同一个属性 <code>background</code> 下。 一般按照约定顺序编写。</p>
+<p>background 背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图片位置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: transparent <span class="hljs-built_in">url</span>(<span class="hljs-string">image.jpg</span>) repeat-y fixed top;<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-7-背景颜色半透明"><a href="#7-7-背景颜色半透明" class="headerlink" title="7.7 背景颜色半透明"></a>7.7 背景颜色半透明</h3><p>CSS3 提供 <code>background: rgba(r,g,b,a)</code> 属性设置图片透明度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.3</span>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>CSS3 新增属性，IE9+支持</p>
+<p><img src="/images/1676277883798.jpg" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h2 id="8-CSS-的三大特性"><a href="#8-CSS-的三大特性" class="headerlink" title="8. CSS 的三大特性"></a>8. CSS 的三大特性</h2><p>CSS 有三个非常重要的特性：层叠性、继承性、优先级。</p>
+<h3 id="8-1-层叠性"><a href="#8-1-层叠性" class="headerlink" title="8.1 层叠性"></a>8.1 层叠性</h3><p>相同选择器设置相同的样式，此时一个样式就会覆盖另一个冲突的样式。层叠性主要解决样式冲突的问题。</p>
+<p>层叠性原则：</p>
+<ul>
+<li>样式冲突：遵循的原则是就近原则，哪个样式离结构近，就执行哪个样式</li>
+<li>样式不冲突，不会层叠</li>
+</ul>
+<h3 id="8-2-继承性"><a href="#8-2-继承性" class="headerlink" title="8.2 继承性"></a>8.2 继承性</h3><p>CSS 中子标签会继承父标签的某些样式，如文本颜色和字号。</p>
+<ul>
+<li>恰当使用继承可以简化代码，降低 CSS 的复杂性</li>
+<li>子元素可以继承父元素的样式（text-, font-, line-这些元素开头的可以继承，以及 color 属性）</li>
+</ul>
+<h4 id="8-2-1-行高的继承性"><a href="#8-2-1-行高的继承性" class="headerlink" title="8.2.1 行高的继承性"></a>8.2.1 行高的继承性</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">font</span>: <span class="hljs-number">12px</span>/<span class="hljs-number">1.5</span> Microsoft Yahei;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>行高可以跟单位也可以不跟</li>
+<li>如果子元素没有设置行高，则会继承父元素的行高为 1.5</li>
+<li>此时子元素的行高是：当前子元素的文字大小*1.5</li>
+<li>body 行高 1.5 这样写法最大优势就是里面的子元素可以根据文字大小自动调整行高</li>
+</ul>
+<h3 id="8-3-优先级"><a href="#8-3-优先级" class="headerlink" title="8.3 优先级"></a>8.3 优先级</h3><p>当一个元素指定多个选择器时，就会有有优先级的产生。</p>
+<ul>
+<li>选择器相同，则执行层叠性</li>
+<li>选择器不同，则根据选择器权重执行</li>
+</ul>
+<p>选择器权重如下所示。</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>选择器权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承或者<code>*</code></td>
+<td><code>0,0,0,0</code></td>
+</tr>
+<tr>
+<td>元素选择器</td>
+<td><code>0,0,0,1</code></td>
+</tr>
+<tr>
+<td>类选择器，伪类选择器</td>
+<td><code>0,0,1,0</code></td>
+</tr>
+<tr>
+<td>ID 选择器</td>
+<td><code>0,1,0,0</code></td>
+</tr>
+<tr>
+<td>行内样式 <code>style=&quot;&quot;</code></td>
+<td><code>1,0,0,0</code></td>
+</tr>
+<tr>
+<td><code>!important</code></td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  <span class="hljs-attribute">color</span>: pink <span class="hljs-meta">!important</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意</p>
+<ul>
+<li>继承的权重为 0，即使加了 important 权重也还是 0。</li>
+<li>a 链接，浏览器默认指定了一个样式，蓝色，下划线，不会继承父级样式</li>
+</ul>
+<p><strong>复合选择器权重的叠加</strong></p>
+<p>权重可以叠加，需要计算权重，但是没有进位。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/web/" class="category-chain-item">web</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/web/">#web</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CSS学习笔记（基础）</div>
+      <div>http://example.com/2023/02/13/CSS笔记（基础）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月13日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/02/13/CSS%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%9B%92%E5%AD%90%EF%BC%8C%E6%B5%AE%E5%8A%A8%EF%BC%8C%E5%AE%9A%E4%BD%8D%EF%BC%89/" title="CSS学习笔记（盒子，浮动，定位）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CSS学习笔记（盒子，浮动，定位）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/13/HTML%E7%AC%94%E8%AE%B0/" title="HTML学习笔记">
+                        <span class="hidden-mobile">HTML学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
