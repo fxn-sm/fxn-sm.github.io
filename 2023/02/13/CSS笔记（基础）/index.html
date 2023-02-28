@@ -25,15 +25,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. CSS 基础选择器1.1 选择器的作用选择器就是根据不同需求把不同标签选择出来。 1.2 选择器分类选择器分为基础选择器和复合选择器两大类。  基础选择器由单个选择器组成 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器  1.3 标签选择器直接用 HTML 标签名作为选择器，按标签名称分类，为页面某一类标签指定统一的 CSS 样式。 语法 12345标签名 &amp;#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/1676276427003.jpg">
+<meta property="og:image" content="http://example.com/images/1677573004067.jpg">
 <meta property="og:image" content="http://example.com/images/1676277306533.jpg">
 <meta property="og:image" content="http://example.com/images/1676277883798.jpg">
 <meta property="article:published_time" content="2023-02-13T08:15:49.000Z">
-<meta property="article:modified_time" content="2023-02-13T08:51:43.199Z">
+<meta property="article:modified_time" content="2023-02-28T08:37:22.645Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/1676276427003.jpg">
+<meta name="twitter:image" content="http://example.com/images/1677573004067.jpg">
   
   
   
@@ -401,10 +401,10 @@
 <td><em>斜体</em></td>
 </tr>
 </tbody></table>
-<p>注意：平常很少给字体加斜体，而是给斜体标签（em,i）给位不倾斜字体。</p>
+<p>注意：平常很少给字体加斜体，而是给斜体标签（em,i）倾斜字体。</p>
 <h3 id="2-5-字体复合属性写法"><a href="#2-5-字体复合属性写法" class="headerlink" title="2.5 字体复合属性写法"></a>2.5 字体复合属性写法</h3><p>将各种字体属性写在同一选择器下，节约代码。</p>
 <p>规则</p>
-<p>严格遵守顺序，且 <code>font-sieze</code> 和 <code>font-family</code> 必须有。</p>
+<p>严格遵守顺序，且 <code>font-size</code> 和 <code>font-family</code> 必须有。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">font</span>: font-style font-weight font-size/line-hight font-family;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="2-6-字体属性总结"><a href="#2-6-字体属性总结" class="headerlink" title="2.6 字体属性总结"></a>2.6 字体属性总结</h3><table>
@@ -498,11 +498,11 @@
 </tr>
 </tbody></table>
 <h3 id="3-4-文本缩进"><a href="#3-4-文本缩进" class="headerlink" title="3.4 文本缩进"></a>3.4 文本缩进</h3><p><code>text-indent</code>定义段落首行缩进。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  text-indet: <span class="hljs-number">5px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>  text-indet: <span class="hljs-number">2em</span>;<br>  //text-indet: <span class="hljs-number">2px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><code>em</code> 是一个相对单位，<code>1em</code> 就是一个字符所占大小。当 <code>text-indent=2em</code>，则恰好缩进两个文字。</p>
 <h3 id="3-5-行间距"><a href="#3-5-行间距" class="headerlink" title="3.5 行间距"></a>3.5 行间距</h3><p><code>line-height</code> 设置行间的距离，行间距&#x3D;文本高度+上间距+下间距</p>
-<p><img src="/images/1676276427003.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/1677573004067.jpg" srcset="/img/loading.gif" lazyload></p>
 <h3 id="3-6-文本属性总结"><a href="#3-6-文本属性总结" class="headerlink" title="3.6 文本属性总结"></a>3.6 文本属性总结</h3><table>
 <thead>
 <tr>
@@ -598,7 +598,7 @@
 <li>a 链接在浏览器中有默认样式，所以实际开发都需要给链接单独指定样式。</li>
 </ol>
 <p><strong>开发中实际写法</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>  <span class="hljs-attribute">color</span>: gray;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#369</span>;<br>  <span class="hljs-attribute">text-decoration</span>: underline;<br>&#125;Copy <span class="hljs-selector-tag">to</span> clipboardErrorCopied<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>  <span class="hljs-attribute">color</span>: gray;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-number">#369</span>;<br>  <span class="hljs-attribute">text-decoration</span>: underline;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="5-4-2-focus-伪类选择器"><a href="#5-4-2-focus-伪类选择器" class="headerlink" title="5.4.2 focus 伪类选择器"></a>5.4.2 focus 伪类选择器</h4><p><code>:focus</code> 伪类选择器用于获取焦点的表单元素。 焦点就是光标，一般情况 <code>&lt;input&gt;</code> 类表单元素才能获取，因此这个选择器也主要针对表单元素来说。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:focus</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: yellow;<br>&#125;<br></code></pre></td></tr></table></figure>
